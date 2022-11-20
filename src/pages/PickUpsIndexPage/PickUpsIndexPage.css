@@ -1,0 +1,167 @@
+/* pickup sports CSS below */
+
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+    /* color: #424748;   */
+    color: black;  
+  }
+  
+  body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 
+      "nav"
+      "main"
+  }
+  
+  body > nav {
+    grid-area: nav;
+    /* background-color: #B8C0C2; */
+    background-color: #3c638e;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px 0 30px;
+    border-bottom: thick solid white;
+  }
+  
+  nav > img {
+    width: 34px;
+    object-fit: contain;
+    margin-right: auto;
+  }
+  
+  body > main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #E8ECEB; */
+    background-color: #6c935c;
+    padding: 20px;
+    overflow-y: scroll;
+  }
+  
+  /* body > main h1:first-child {
+    margin-bottom: 50px;
+  } */
+  
+  nav > a {
+    margin: 20px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  nav > a:hover:not(.active) {
+    color: white;
+    background-color: #424748;
+  }
+  
+  nav > a.active {
+    color: white;
+    cursor: default;
+  }
+  
+  table {
+    font-size: 20px;
+  }
+  
+  table thead th {
+    padding: 5px;
+    border-bottom: 2px solid #424748;
+  }
+  
+  #list a:hover {
+    background-color: white;
+  }
+  
+  #show-page {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+  }
+  
+  #show-page div:nth-child(even) {
+    font-weight: bold;
+  }
+  
+  ul {
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+  }
+      
+  li {
+    font-weight: bold;
+  }
+  
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+  }
+  
+  .login img {
+    height: 30px;
+  }
+  
+  .user-block img {
+    border-radius: 50%;
+    height: 100px;
+  }
+  
+  .user-block  {
+    text-align: center;
+    font-size: 2em;
+  }
+  
+  .styled-table {
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* background-color: #3c648e; */
+  }
+  
+  .styled-table thead tr, 
+  #gamehead {
+    /* background-color: #6c935c; */
+    background-color: #3c638e;
+    color: #ffffff;
+    text-align: left;
+    border: thick solid white;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+      padding: 12px 8px;
+  }
+  
+  .styled-table tbody tr {
+    /* border-bottom: thick solid white; */
+    border: thick solid white;
+    text-align: left;
+    background-color: #d7ddff;
+  }
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #bdcffc;
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    /* border-bottom: 2px solid #6c935c; */
+    /* border-bottom: 2px solid #3c638e; */
+  }
+  
+  table input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+  }
+  

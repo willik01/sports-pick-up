@@ -1,10 +1,11 @@
 import * as pickupsAPI from '../../utilities/pickups-api'
+import './PickUpsIndexPage.css';
 
 export default function PickUpsIndexPage() {
     return (
         <>
             <h1>All Pickups</h1>
-            <table class="styled-table">
+            <table className="styled-table">
               <thead>
                 <tr>
                   <th>Players Needed</th>
