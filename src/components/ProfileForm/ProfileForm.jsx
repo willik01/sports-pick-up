@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react'
 import * as profilesAPI from '../../utilities/profiles-api';
 
-export default function ProfileForm(user) {
-    console.log('keitk', user)
+export default function ProfileForm({user}) {
+    console.log('keitk', user.name)
     const [formData, setFormData] = useState({
         // user: '',  
         location: '',

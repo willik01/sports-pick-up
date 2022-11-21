@@ -14,6 +14,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
+  console.log('user from App.js: ', user)
 
   return (
     <main className="App">
@@ -23,7 +24,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<PickUpsIndexPage />} />
             <Route path="/pickups" element={<PickUpsIndexPage />} />
-            <Route path="/profile" element={<ProfilePage user={user}/>} />
+            <Route path="/profile" element={<ProfilePage user={user} />} />
             {/* <Route path="/profile" element={<ProfilePage />} /> */}
           </Routes>
         </>
