@@ -1,12 +1,10 @@
-import { useState } from 'react'
+import ProfileForm from '../../components/ProfileForm/ProfileForm'
 
-import NavBar from '../../components/NavBar/NavBar'
-
-export default function ProfilePage(user) {
-  const[ profile, setProfile] = useState([])
+export default function ProfilePage(user, setUser) {
     
   return (
     <main className="profile-page">
+        <ProfileForm user={user} setUser={setUser} />
         {console.log("i am in the profile page")}
     </main>
   );
