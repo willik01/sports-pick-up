@@ -7,7 +7,7 @@ const profilesCtrl = require('../../controllers/api/profiles')
 
 // GET /api/profile
 router.get('/', profilesCtrl.getProfile);
-// router.post('/', profilesCtrl.saveProfile)
+router.post('/', profilesCtrl.saveProfile)
 
 // router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken)
 

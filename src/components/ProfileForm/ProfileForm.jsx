@@ -2,8 +2,7 @@
 import { useState, useEffect } from 'react'
 import * as profilesAPI from '../../utilities/profiles-api';
 
-export default function ProfileForm(user) {
-    console.log('keitk', user)
+export default function ProfileForm({user}) {
     const [formData, setFormData] = useState({
         // user: '',  
         location: '',
@@ -45,7 +44,6 @@ export default function ProfileForm(user) {
         evt.preventDefault()
         try {
             const formDataCopy = {...formData, user:user._id}
-            console.log('formdatacopy: ', formDataCopy)
             delete formDataCopy.error
             const profile = await profilesAPI.saveProfile(formDataCopy)
             setProfile(profile)
