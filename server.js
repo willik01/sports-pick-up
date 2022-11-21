@@ -17,7 +17,11 @@ app.use(express.static(path.join(__dirname, 'build')))
 app.use(require('./config/checkToken'))
 
 app.use('/api/users', require('./routes/api/users'))
+//Protect API Routes
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/profiles', ensureLoggedIn, require('./routes/api/profiles'))
 
+// "catch-all" route that will match all GET requests that don't match an API route defined above
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
