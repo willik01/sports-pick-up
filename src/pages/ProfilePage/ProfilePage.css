@@ -1,0 +1,34 @@
+.profile-page {
+  margin: auto;
+  width: 400px;
+
+}
+
+.styled-div {
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  /* background-color: #3c648e; */
+}
+
+.styled-div-head {
+  background-color: #3c638e;
+  color: #ffffff;
+  text-align: left;
+  border: thick solid white;
+}
+
+.styled-div-rows {
+  border: thick solid white;
+  text-align: left;
+  background-color: #d7ddff;
+}
+
+
+/* Can this be done with Divs?  */
+/* .styled-div tr:nth-of-type(even) { 
+  background-color: #bdcffc;
+} */

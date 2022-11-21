@@ -24,8 +24,7 @@ export default function App() {
             <Route path="/" element={<PickUpsIndexPage />} />
             <Route path="/pickups" element={<PickUpsIndexPage />} />
             <Route path="/profile" element={<ProfilePage user={user}/>} />
-            {/* <Route path="/orders/new" element={<NewOrderPage />} /> */}
-            {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
+            {/* <Route path="/profile" element={<ProfilePage />} /> */}
           </Routes>
         </>
         :

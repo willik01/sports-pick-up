@@ -155,11 +155,6 @@
     background-color: #bdcffc;
   }
   
-  .styled-table tbody tr:last-of-type {
-    /* border-bottom: 2px solid #6c935c; */
-    /* border-bottom: 2px solid #3c638e; */
-  }
-  
   table input[type="submit"] {
     display: block;
     margin: 0 auto;

@@ -2,9 +2,10 @@
 import { useState, useEffect } from 'react'
 import * as profilesAPI from '../../utilities/profiles-api';
 
-export default function ProfileForm({ user, setUser }) {
+export default function ProfileForm(user) {
+    console.log('keitk', user)
     const [formData, setFormData] = useState({
-        user: '',  
+        // user: '',  
         location: '',
         // games: '',
         // language: '',
@@ -13,7 +14,7 @@ export default function ProfileForm({ user, setUser }) {
     })
 
     const [profile, setProfile] = useState({
-        user: '',  
+        // user: '',  
         location: '',
         // games: '',
         // language: '',
@@ -23,7 +24,8 @@ export default function ProfileForm({ user, setUser }) {
 
     useEffect(function() {
         async function getProfile() {
-            const userProfile = await profilesAPI.getProfile(user._id);
+            // const userProfile = await profilesAPI.getProfile(user._id);
+            const userProfile = await profilesAPI.getProfile();
             setFormData(userProfile);
         }
         getProfile();
@@ -43,8 +45,8 @@ export default function ProfileForm({ user, setUser }) {
         evt.preventDefault()
         try {
             const formDataCopy = {...formData, user:user._id}
+            console.log('formdatacopy: ', formDataCopy)
             delete formDataCopy.error
-            delete formDataCopy.confirm
             const profile = await profilesAPI.saveProfile(formDataCopy)
             setProfile(profile)
         } catch {
@@ -57,9 +59,11 @@ export default function ProfileForm({ user, setUser }) {
 
     return(
         <div>
-            <div className="form-container">
-              <form autoComplete="off" onSubmit={handleSubmit}>
-                <label>Location</label>
+            <div className='styled-div'>
+              <form autoComplete='off' onSubmit={handleSubmit}>
+                <div className='styled-div-head'>User Name</div>
+                <div className='styled-div-rows'>{user.name}</div>
+                <div className='styled-div-head'><label>Location</label> </div>
                 <input type="text" name="location" value={formData.location} onChange={handleChange} />
                 {/* <label>Email</label>
                 <input type="email" name="email" value={formData.email} onChange={handleChange}  />

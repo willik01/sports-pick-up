@@ -46,7 +46,7 @@ const profileSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
       },
-    location: {type: String, default: 'timbuktoo'}, //general location to map with other players
+    location: {type: String, default: 'timbuktu'}, //general location to map with other players
     games: [gamesSchema],
     language: [languageSchema],
     country: [countrySchema],
