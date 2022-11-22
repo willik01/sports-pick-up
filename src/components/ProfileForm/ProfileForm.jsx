@@ -1,4 +1,3 @@
-// Rewrite the SignUpForm as a function component
 import { useState, useEffect } from 'react'
 import * as profilesAPI from '../../utilities/profiles-api';
 
@@ -11,6 +10,10 @@ export default function ProfileForm({user}) {
         // country: '',
         error: '',
     })
+
+    // const [gameFormData, setGameFormData] = useState({
+    //     error: '',
+    // })
 
     const [profile, setProfile] = useState({
         // user: '',  
@@ -29,8 +32,9 @@ export default function ProfileForm({user}) {
         }
         getProfile();
     }, [])
-
-    // event handlers ??
+    ////////////////////
+    // event handlers //
+    ////////////////////
 
     function handleChange(evt) {
         setFormData({
@@ -40,11 +44,12 @@ export default function ProfileForm({user}) {
         })
     }
 
-    async function handleSubmit(evt) {
+    async function handleSubmitProfile(evt) {
         evt.preventDefault()
         try {
+            // const countryToInsert = [country.[country:'US']]
             const formDataCopy = {...formData, user:user._id}
-            delete formDataCopy.error
+            delete formDataCopy.error        
             const profile = await profilesAPI.saveProfile(formDataCopy)
             setProfile(profile)
         } catch {
@@ -58,17 +63,15 @@ export default function ProfileForm({user}) {
     return(
         <div>
             <div className='styled-div'>
-              <form autoComplete='off' onSubmit={handleSubmit}>
+              <form autoComplete='off' onSubmit={handleSubmitProfile}>
                 <div className='styled-div-head'>User Name</div>
                 <div className='styled-div-rows'>{user.name}</div>
                 <div className='styled-div-head'><label>Location</label> </div>
                 <input type="text" name="location" value={formData.location} onChange={handleChange} />
-                {/* <label>Email</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange}  />
-                <label>Password</label>
-                <input type="password" name="password" value={formData.password} onChange={handleChange}  />
-                <label>Confirm</label>
-                <input type="password" name="confirm" value={formData.confirm} onChange={handleChange}  /> */}
+                <div className='styled-div-head'><label>Language</label> </div>
+                <input type="text" name="language" value={formData.language} onChange={handleChange} />
+                <div className='styled-div-head'><label>Country</label> </div>
+                <input type="text" name="country" value={formData.country} onChange={handleChange} />                
                 <button type="submit">Update Profile</button>
               </form>
             </div>
