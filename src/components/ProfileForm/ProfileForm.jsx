@@ -65,13 +65,14 @@ export default function ProfileForm({user}) {
             <div className='styled-div'>
               <form autoComplete='off' onSubmit={handleSubmitProfile}>
                 <div className='styled-div-head'>User Name</div>
-                <div className='styled-div-rows'>{user.name}</div>
-                <div className='styled-div-head'><label>Location</label> </div>
-                <input type="text" name="location" value={formData.location} onChange={handleChange} />
-                <div className='styled-div-head'><label>Language</label> </div>
-                <input type="text" name="language" value={formData.language} onChange={handleChange} />
-                <div className='styled-div-head'><label>Country</label> </div>
-                <input type="text" name="country" value={formData.country} onChange={handleChange} />                
+                
+                <input className='styled-div-rows' type="text" name="userName" value={user.name} />
+                <div className='styled-div-head'>Location </div>
+                <input className='styled-div-rows' type="text" name="location" value={formData.location} onChange={handleChange} />
+                <div className='styled-div-head'>Language</div>
+                <input className='styled-div-rows' type="text" name="language" value={formData.language} onChange={handleChange} />
+                <div className='styled-div-head'>Country</div>
+                <input className='styled-div-rows' type="text" name="country" value={formData.country} onChange={handleChange} />                
                 <button type="submit">Update Profile</button>
               </form>
             </div>

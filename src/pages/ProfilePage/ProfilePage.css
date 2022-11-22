@@ -1,3 +1,7 @@
+ body {
+  background-color: #6c935c;
+}
+
 .profile-page {
   margin: auto;
   width: 400px;
@@ -26,9 +30,3 @@
   text-align: left;
   background-color: #d7ddff;
 }
-
-
-/* Can this be done with Divs?  */
-/* .styled-div tr:nth-of-type(even) { 
-  background-color: #bdcffc;
-} */
