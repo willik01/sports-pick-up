@@ -1,7 +1,22 @@
-// import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 // import * as userGamesAPI from '../../utilities/userGames-api';
 
-export default function userGamesForm({user}) {
+export default function UserGamesForm({user}) {
+    const [gameFormData, setGameFormData] = useState({
+        location: '',
+        language: '',
+        country: '',
+        error: '',
+    })
+    //pull user games
+    useEffect(function() {
+        // async function getProfile() {
+        //     // const userProfile = await profilesAPI.getProfile(user._id);
+        //     const userProfile = await profilesAPI.getProfile();
+        //     setFormData(userProfile);
+        // }
+        // getProfile();
+    }, [])
 
     ////////////////////
     // event handlers //
@@ -28,9 +43,6 @@ export default function userGamesForm({user}) {
         //     })
         // }
     }
-
-
-
 
         return(        
              <div className="styled-div"> 
