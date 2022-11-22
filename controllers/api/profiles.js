@@ -11,6 +11,9 @@ async function getProfile(req, res) {
 }
 
 async function saveProfile(req, res) {
+    console.log('request body: ', req.body)
+    // const profile = await Profile.findOneAndUpdate({user:req.user._id}, req.body, {new:true}).exec();
     const profile = await Profile.findOneAndUpdate({user:req.user._id}, req.body);
+    console.log('profile: ',profile)
     res.json(profile);
 }
