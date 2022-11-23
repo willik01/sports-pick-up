@@ -45,10 +45,6 @@ export default function NewUserGameForm({user}) {
             const newGameFormDataCopy = {...newGameFormData, user:user._id}
             delete newGameFormDataCopy.error
             const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
-            console.log(newUserGame)
-            /////
-            // newGameFormData(newUserGame) //is ths needed???
-            /////
         } catch {
             setNewGameFormData({
                 ...newGameFormData,

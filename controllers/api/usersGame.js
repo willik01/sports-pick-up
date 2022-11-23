@@ -14,12 +14,8 @@ async function getUsersGames(req, res) {
 }
 
 async function updateUsersGame(req, res) {
-    console.log('contrller userGame.js request body: ', req.body)
     req.body._id ||= ObjectId() // if no userGame ID, create new one for upsert
-    console.log('contrller userGame.js request body: ', req.body)
-    // const usersGame = await userGame.findOneAndUpdate({user:req.body._id}, req.body, { upsert: true, new: true });
     const usersGame = await userGame.findOneAndUpdate({_id:req.body._id }, req.body, { upsert: true, new: true });
-    console.log('usersGame: ',usersGame)
     res.json(usersGame);
 }
 
