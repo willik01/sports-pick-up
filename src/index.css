@@ -6,6 +6,9 @@
   --tan-3: #E2D9D1;
   --tan-4: #D3C1AE;
   --orange: #F67F00;
+  --tennisBallGreen: #E2FE3C;
+  --tennisCourtGreen: #6c935c;
+  --usOpenCourtBlue:#3c638e;
   --text-light: #968c84;
   --text-dark: #615954;
 }
@@ -87,7 +90,7 @@ code {
 }
 
 p.error-message {
-  color: var(--orange);
+  color: var(--tennisBallGreen);
   text-align: center;
 }
 
@@ -115,20 +118,20 @@ input {
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: var(--tennisBallGreen);
 }
 
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--usOpenCourtBlue);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
   border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
+  border-radius: 1vmin;
   outline: none;
   cursor: pointer;
 }

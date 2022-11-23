@@ -1,5 +1,5 @@
  body {
-  background-color: #6c935c;
+  background-color: var(--tennisCourtGreen);
 }
 
 .profile-page {
@@ -19,8 +19,8 @@
 }
 
 .styled-div-head {
-  background-color: #3c638e;
-  color: #ffffff;
+  background-color: var(--usOpenCourtBlue);
+  color: var(--white);
   text-align: left;
   border: thick solid white;
 }
@@ -29,4 +29,8 @@
   border: thick solid white;
   text-align: left;
   background-color: #d7ddff;
+}
+
+select {
+  width: 75px;
 }

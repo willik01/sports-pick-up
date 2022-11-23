@@ -1,5 +1,5 @@
 import ProfileForm from '../../components/ProfileForm/ProfileForm'
-import UserGamesForm from '../../components/UserGamesForm/UserGamesForm';
+import UserGamesForm from '../../components/NewUserGameForm/NewUserGameForm';
 import './ProfilePage.css';
 
 export default function ProfilePage({user}) {
