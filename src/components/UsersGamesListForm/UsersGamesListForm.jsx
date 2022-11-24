@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as usersGameAPI from '../../utilities/usersGame-api';
-import UsersGameForm from '../UsersGameForm.jsx/UsersGameForm';
+import UsersGameDetailForm from '../UsersGameDetailForm/UsersGameDetailForm';
 
 export default function UsersGamesForm() {
 
@@ -20,7 +20,7 @@ export default function UsersGamesForm() {
         <>
             <div className="styled-div"> 
             {usersGames.map((game, key) => (
-                <UsersGameForm game={game} key={key}/>
+                <UsersGameDetailForm game={game} key={key}/>
             ))}
             
             </div> 
