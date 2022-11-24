@@ -1,62 +1,68 @@
 import { useState, useEffect } from 'react'
 import * as usersGameAPI from '../../utilities/usersGame-api';
 
-export default function NewUserGameForm({user}) {
+export default function UsersGamesForm({user}) {
     
-    const skillOptions = ['1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'];
-    const gameOptions = ['Tennis', 'Pickleball', 'Badminton'];
-    // const [skillSelectedOption, setSkillSelectedOption] = useState(skillOptions[2])
-    // const [gameSelectedOption, setGameSelectedOption] = useState(gameOptions[0])
     
-    // QUESTION: what is the purpose of defining the element for useState? Does it keep track when you fill the variable with data/fields from a previous save? 
-    const [newGameFormData, setNewGameFormData] = useState({
-        game: '',
-        skillLevel: '',
-        yearsExperience: '',
-        genderPreference: '',
-        gameLocation: '',
-        error: '',
-    });
+    const [usersGames, setUsersGames] = useState([{
+        _id: "",
+        game: "",
+        skillLevel: "",
+        yearsExperiene: 0,
+        gameLocation: "",
+    }]);
+    
 
     //Get user's games
-    // useEffect(function() {
-    //     async function getUsersGames() {
-    //         // const userProfile = await profilesAPI.getProfile(user._id);
-    //         const usersGames = await usersGameAPI.getUsersGames();
-    //         console.log('usersGames: ', usersGames)
-    //     }
-    //     getUsersGames();
-    // }, []);
+    useEffect(function() {
+        async function getUsersGames() {
+            const tempUsersGames = await usersGameAPI.getUsersGames();
+            console.log('usersGames in getUsersGames: ', tempUsersGames)
+            setUsersGames(tempUsersGames);
+        }
+        getUsersGames();
+    }, []); 
 
     ////////////////////
     // event handlers //
     ////////////////////
     function handleChangeGame(evt) {
-        setNewGameFormData({
-            ...newGameFormData,
-            [evt.target.name]: evt.target.value,
-            error: ''
-        })
+        // setNewGameFormData({
+        //     ...newGameFormData,
+        //     [evt.target.name]: evt.target.value,
+        //     error: ''
+        // })
     };
 
     async function handleSubmitGame(evt) {
         evt.preventDefault()
-        try {
-            const newGameFormDataCopy = {...newGameFormData, user:user._id}
-            delete newGameFormDataCopy.error
-            const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
-        } catch {
-            setNewGameFormData({
-                ...newGameFormData,
-                error: "User's game save failed, please try again."
-            })
-        }
+        // try {
+        //     const newGameFormDataCopy = {...newGameFormData, user:user._id}
+        //     delete newGameFormDataCopy.error
+        //     const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
+        // } catch {
+        //     setNewGameFormData({
+        //         ...newGameFormData,
+        //         error: "User's game save failed, please try again."
+        //     })
+        // }
     };
 
         return(        
              <>
              <div className="styled-div"> 
-                <form autoComplete="off" onSubmit={handleSubmitGame}>  
+             {console.log('usersGames in return: ', usersGames)}
+             
+                {usersGames.map((game, key) => (
+                    <div key={game._id}>
+                        <div>{game.game}</div>
+                        <div>{game.user} </div>
+                        <div>{game.game} </div>
+                        <div>{game.gameLocation} </div>
+                        <div>{game.skillLevel} </div>
+                    </div>
+                ))}
+                {/* <form autoComplete="off" onSubmit={handleSubmitGame}>  
                     <div className="" >Sport</div>
                     <div className="" >
                         <select 
@@ -89,9 +95,9 @@ export default function NewUserGameForm({user}) {
                     <div className="" >Desired Play Location</div>
                     <div className="" ><input type="text" id="gameLocation" name="gameLocation" value={newGameFormData.gameLocation} onChange={handleChangeGame} /></div>
                     <button type="submit">Add New Sport Profile</button>
-                </form>
+                </form> */}
             </div> 
-            <p className="error-message">&nbsp;{newGameFormData.error}</p>
+            {/* <p className="error-message">&nbsp;{newGameFormData.error}</p> */}
         </>
         )
     }

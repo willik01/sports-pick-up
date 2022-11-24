@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function getUsersGames(req, res) {
-    const usersGames = await userGame.getAll({user:req.user._id});
+    const usersGames = await userGame.find({user:req.user._id});
     res.json(usersGames);
 }
 
