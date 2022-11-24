@@ -5,7 +5,7 @@ const usersGameCtrl = require('../../controllers/api/usersGame')
 // GET /api/profile
 router.get('/', usersGameCtrl.getUsersGames)
 router.post('/save', usersGameCtrl.updateUsersGame);
-router.post('/delete', usersGameCtrl.deleteUsersGame);
+router.delete('/delete', usersGameCtrl.deleteUsersGame);
 
 
 // router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken)

@@ -10,11 +10,9 @@ export default function ProfileForm({user}) {
     })
 
     const [profile, setProfile] = useState({
-        // user: '',  
         location: '',
-        // games: '',
-        // language: '',
-        // country: '',
+        language: '',
+        country: '',
         error: '',
     })
 

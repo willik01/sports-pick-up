@@ -19,14 +19,14 @@ export default function NewUserGameForm({user}) {
     });
 
     //Get user's games
-    useEffect(function() {
-        // async function getProfile() {
-        //     // const userProfile = await profilesAPI.getProfile(user._id);
-        //     const userProfile = await profilesAPI.getProfile();
-        //     setFormData(userProfile);
-        // }
-        // getProfile();
-    }, []);
+    // useEffect(function() {
+    //     async function getUsersGames() {
+    //         // const userProfile = await profilesAPI.getProfile(user._id);
+    //         const usersGames = await usersGameAPI.getUsersGames();
+    //         console.log('usersGames: ', usersGames)
+    //     }
+    //     getUsersGames();
+    // }, []);
 
     ////////////////////
     // event handlers //
@@ -45,10 +45,6 @@ export default function NewUserGameForm({user}) {
             const newGameFormDataCopy = {...newGameFormData, user:user._id}
             delete newGameFormDataCopy.error
             const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
-            console.log(newUserGame)
-            /////
-            // newGameFormData(newUserGame) //is ths needed???
-            /////
         } catch {
             setNewGameFormData({
                 ...newGameFormData,
