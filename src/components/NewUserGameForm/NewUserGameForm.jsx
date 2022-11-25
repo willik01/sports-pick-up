@@ -5,8 +5,6 @@ export default function NewUserGameForm({user}) {
     
     const skillOptions = ['1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'];
     const gameOptions = ['Tennis', 'Pickleball', 'Badminton'];
-    // const [skillSelectedOption, setSkillSelectedOption] = useState(skillOptions[2])
-    // const [gameSelectedOption, setGameSelectedOption] = useState(gameOptions[0])
     
     // QUESTION: what is the purpose of defining the element for useState? Does it keep track when you fill the variable with data/fields from a previous save? 
     const [newGameFormData, setNewGameFormData] = useState({
@@ -17,16 +15,6 @@ export default function NewUserGameForm({user}) {
         gameLocation: '',
         error: '',
     });
-
-    //Get user's games
-    // useEffect(function() {
-    //     async function getUsersGames() {
-    //         // const userProfile = await profilesAPI.getProfile(user._id);
-    //         const usersGames = await usersGameAPI.getUsersGames();
-    //         console.log('usersGames: ', usersGames)
-    //     }
-    //     getUsersGames();
-    // }, []);
 
     ////////////////////
     // event handlers //
@@ -62,8 +50,6 @@ export default function NewUserGameForm({user}) {
                         <select 
                             value={newGameFormData.game}
                             onChange={handleChangeGame}
-                            // value={gameSelectedOption}  
-                            // onChange={evt => setGameSelectedOption(evt.target.value)}
                             name="game" 
                             id="game">
                             {gameOptions.map((g) => (
@@ -75,8 +61,6 @@ export default function NewUserGameForm({user}) {
                         <select 
                             value={newGameFormData.skillLevel}
                             onChange={handleChangeGame}
-                            // value={skillSelectedOption}  
-                            // onChange={evt => setSkillSelectedOption(evt.target.value)}
                             name="skillLevel" 
                             id="skillLevel"
                         >

@@ -5,27 +5,6 @@ export default function UsersGameDetailForm({game}) {
     ////////////////////
     // event handlers //
     ////////////////////
-    function handleChangeGame(evt) {
-        // setNewGameFormData({
-        //     ...newGameFormData,
-        //     [evt.target.name]: evt.target.value,
-        //     error: ''
-        // })
-    };
-
-    async function handleSubmitGame(evt) {
-        evt.preventDefault()
-        // try {
-        //     const newGameFormDataCopy = {...newGameFormData, user:user._id}
-        //     delete newGameFormDataCopy.error
-        //     const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
-        // } catch {
-        //     setNewGameFormData({
-        //         ...newGameFormData,
-        //         error: "User's game save failed, please try again."
-        //     })
-        // }
-    };
 
     async function deleteGame(evt) {
         try {
