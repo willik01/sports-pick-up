@@ -1,6 +1,6 @@
 import * as usersGameAPI from '../../utilities/usersGame-api';
 
-export default function UsersGameDetailForm({game}) {
+export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
     
     ////////////////////
     // event handlers //
@@ -10,6 +10,11 @@ export default function UsersGameDetailForm({game}) {
         try {
             console.log('I am here in delete')
             await usersGameAPI.deleteUsersGame(game)
+            const removeDeletedGame = () => {
+                SetUsersGames((current) =>
+                  current.filter((fruit) => fruit.id !== 2)
+                );
+              };
         } catch {
         //     set**FormData({
         //         ...newGameFormData,
