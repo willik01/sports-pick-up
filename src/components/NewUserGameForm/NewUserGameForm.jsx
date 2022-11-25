@@ -46,8 +46,8 @@ export default function NewUserGameForm({user, usersGames, setUsersGames}) {
              <>
              <div className="styled-div"> 
                 <form autoComplete="off" onSubmit={handleSubmitGame}>  
-                    <div className="" >Sport</div>
-                    <div className="" >
+                    <div className='styled-div-head' >Sport</div>
+                    <div className="styled-div-rows" >
                         <select 
                             value={newGameFormData.game}
                             onChange={handleChangeGame}
@@ -57,8 +57,8 @@ export default function NewUserGameForm({user, usersGames, setUsersGames}) {
                                 <option value={g} key={g}>{g}</option>
                             ))}
                         </select></div>
-                    <div className="" >Skill Level</div>
-                    <div className="" >
+                    <div className="styled-div-head" >Skill Level</div>
+                    <div className="styled-div-rows" >
                         <select 
                             value={newGameFormData.skillLevel}
                             onChange={handleChangeGame}
@@ -69,10 +69,10 @@ export default function NewUserGameForm({user, usersGames, setUsersGames}) {
                             <option value={sl} key={sl}>{sl}</option>
                             ))}
                         </select></div>
-                    <div className="" >Years Experience</div>
-                    <div className="" ><input type="number" id="yearsExperience" name="yearsExperience" value={newGameFormData.yearsExperience} onChange={handleChangeGame} /></div>
-                    <div className="" >Desired Play Location</div>
-                    <div className="" ><input type="text" id="gameLocation" name="gameLocation" value={newGameFormData.gameLocation} onChange={handleChangeGame} /></div>
+                    <div className="styled-div-head" >Years Experience</div>
+                    <div className="styled-div-rows" ><input type="number" id="yearsExperience" name="yearsExperience" value={newGameFormData.yearsExperience} onChange={handleChangeGame} /></div>
+                    <div className="styled-div-head" >Desired Play Location</div>
+                    <div className="styled-div-rows" ><input type="text" id="gameLocation" name="gameLocation" value={newGameFormData.gameLocation} onChange={handleChangeGame} /></div>
                     <button type="submit">Add New Sport Profile</button>
                 </form>
             </div> 
