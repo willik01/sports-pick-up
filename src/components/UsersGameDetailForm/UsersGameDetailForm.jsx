@@ -1,36 +1,20 @@
 import * as usersGameAPI from '../../utilities/usersGame-api';
 
-export default function UsersGameDetailForm({game}) {
+export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
     
     ////////////////////
     // event handlers //
     ////////////////////
-    function handleChangeGame(evt) {
-        // setNewGameFormData({
-        //     ...newGameFormData,
-        //     [evt.target.name]: evt.target.value,
-        //     error: ''
-        // })
-    };
-
-    async function handleSubmitGame(evt) {
-        evt.preventDefault()
-        // try {
-        //     const newGameFormDataCopy = {...newGameFormData, user:user._id}
-        //     delete newGameFormDataCopy.error
-        //     const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
-        // } catch {
-        //     setNewGameFormData({
-        //         ...newGameFormData,
-        //         error: "User's game save failed, please try again."
-        //     })
-        // }
-    };
 
     async function deleteGame(evt) {
         try {
             console.log('I am here in delete')
             await usersGameAPI.deleteUsersGame(game)
+            const removeDeletedGame = () => {
+                SetUsersGames((current) =>
+                  current.filter((fruit) => fruit.id !== 2)
+                );
+              };
         } catch {
         //     set**FormData({
         //         ...newGameFormData,

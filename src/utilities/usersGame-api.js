@@ -3,6 +3,7 @@ const BASE_URL = '/api/usersGame';
 
 // Retrieve games of logged in user
 export function getUsersGames(userId) {
+  console.log('what is userId for in this query? usersGame-api.js: ', userId)
   return sendRequest(`${BASE_URL}`, 'GET', userId);
 }
 
