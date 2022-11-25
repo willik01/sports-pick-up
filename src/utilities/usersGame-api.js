@@ -14,6 +14,5 @@ export function updateUsersGame(gameData) {
 
 // delete a single existing user's game
 export function deleteUsersGame(gameId) {
-  console.log('here I am in ug-apis.js', gameId)
   return sendRequest(`${BASE_URL}/delete`, 'DELETE', gameId);
 }

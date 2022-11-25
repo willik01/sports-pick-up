@@ -33,10 +33,7 @@ export default function NewUserGameForm({user, usersGames, setUsersGames}) {
             const newGameFormDataCopy = {...newGameFormData, user:user._id}
             delete newGameFormDataCopy.error
             const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
-            console.log('usersGamesBefore: ', ...usersGames, 'newUserGameBefore: ', newUserGame)
-            const tempUsersGames = usersGames.concat(newUserGame)
-            setUsersGames(tempUsersGames)
-            console.log('usersGamesAfter: ', usersGames, 'newUserGameAfter: ', newUserGame)
+            setUsersGames(()=> usersGames.concat(newUserGame))
         } catch {
             setNewGameFormData({
                 ...newGameFormData,

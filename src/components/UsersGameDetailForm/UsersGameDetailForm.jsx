@@ -8,8 +8,8 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
     let displayErr
     async function deleteGame(evt) {
         try {
-            console.log('I am here in delete', game, 'usersGames', usersGames)
             await usersGameAPI.deleteUsersGame(game)
+            // remove game from state
             setUsersGames((current) => current.filter((deletedOne) => deletedOne._id !== game._id));
         } catch {
             displayErr = "Game Delete failed, please try again."

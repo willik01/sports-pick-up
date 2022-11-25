@@ -21,11 +21,6 @@ async function updateUsersGame(req, res) {
 }
 
 async function deleteUsersGame(req, res) {
-    console.log('contrller userGame.js request body: ', req.body, "req._id", req._id, 'req.body._id', req.body._id)
     const deletedUserGame = await userGame.findOneAndRemove({_id:req.body._id})
-    // const profile = await Profile.findOneAndUpdate({user:req.user._id}, req.body, {new:true}).exec();
-    // const usersGame = await userGame.findOneAndUpdate({user:req.body.game._id}, req.body);
-    // console.log('usersGame: ',usersGame)
-    console.log('deleted game???', deletedUserGame)
     res.json(deletedUserGame);
 }
