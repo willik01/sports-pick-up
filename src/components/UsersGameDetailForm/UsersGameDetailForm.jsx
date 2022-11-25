@@ -5,22 +5,14 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
     ////////////////////
     // event handlers //
     ////////////////////
-
+    let displayErr
     async function deleteGame(evt) {
         try {
-            console.log('I am here in delete')
+            console.log('I am here in delete', game, 'usersGames', usersGames)
             await usersGameAPI.deleteUsersGame(game)
-            const removeDeletedGame = () => {
-                SetUsersGames((current) =>
-                  current.filter((fruit) => fruit.id !== 2)
-                );
-              };
+            setUsersGames((current) => current.filter((deletedOne) => deletedOne._id !== game._id));
         } catch {
-        //     set**FormData({
-        //         ...newGameFormData,
-        //         error: "Game Delete failed, please try again."
-        //     })
-
+            displayErr = "Game Delete failed, please try again."
         }
     }
 
@@ -32,11 +24,9 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
                 <div>{game.gameLocation} </div>
                 <div>{game.skillLevel} </div>
                 <div>{game.yearsExperience} </div>
-                {/* <form onSubmit={handleSubmitGame}> */}
                     <button onClick={deleteGame}>Delete</button>
-                {/* </form> */}
             </div>              
-            {/* <p className="error-message">&nbsp;{newGameFormData.error}</p> */}
+            <p className="error-message">&nbsp;{displayErr}</p>
         </>
         )
     }
