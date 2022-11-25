@@ -10,7 +10,6 @@ export default function UsersGamesForm({usersGames, setUsersGames}) {
     useEffect(function() {
         async function getUsersGames() {
             const tempUsersGames = await usersGameAPI.getUsersGames();
-            console.log('usersGames in getUsersGames: ', tempUsersGames)
             setUsersGames(tempUsersGames);
         }
         getUsersGames();
