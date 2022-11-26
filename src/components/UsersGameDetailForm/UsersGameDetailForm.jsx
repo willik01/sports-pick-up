@@ -30,10 +30,11 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
                 <div className="styled-div-rows" >{game.skillLevel} </div>
                 <div className="styled-div-head" >Years Experience</div>
                 <div className="styled-div-rows" >{game.yearsExperience} </div>
-                    <button onClick={deleteGame}>Delete</button>
+                <button onClick={deleteGame}>Delete</button>
+                <p className="error-message">&nbsp;{displayErr}</p>
             </form>
             </div>              
-            <p className="error-message">&nbsp;{displayErr}</p>
+            
         </>
         )
     }
