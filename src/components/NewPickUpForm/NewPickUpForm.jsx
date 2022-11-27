@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react'
 import * as usersGameAPI from '../../utilities/usersGame-api';
 
-export default function NewUserGameForm({user, usersGames, setUsersGames, userGameEnums, skillLevelEnums}) {
+export default function NewPickUpForm({user, usersGames, setUsersGames, userGameEnums, skillLevelEnums}) {
     
-    // const skillOptions = ['1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'];
-    // const gameOptions = ['Tennis', 'Pickleball', 'Badminton'];
-
-    // QUESTION: what is the purpose of defining the element for useState? Does it keep track when you fill the variable with data/fields from a previous save? 
-    const [newGameFormData, setNewGameFormData] = useState({
+    const [newPickupFormData, setNewPickupFormData] = useState({
         game: userGameEnums[0],
         skillLevel: skillLevelEnums[1],
         yearsExperience: '',
@@ -16,26 +12,28 @@ export default function NewUserGameForm({user, usersGames, setUsersGames, userGa
         // error: '',
     });
     
-    async function handleSubmitGame(evt) {
-        evt.preventDefault()
-        try {
-            const newGameFormDataCopy = {...newGameFormData, user:user._id}
-            delete newGameFormDataCopy.error
-            const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
-            setUsersGames(()=> usersGames.concat(newUserGame))
-        } catch {
-            setNewGameFormData({
-                ...newGameFormData,
-                error: "User's game save failed, please try again."
-            })
-        }
+    async function handleSubmitPickup(evt) {
+        // evt.preventDefault()
+        // try {
+        //     const tempPickupFormData = {...newPickupFormData, user:user._id}
+        //     delete tempPickupFormData.error
+        //     //Should this be a simple insert vs. upsert? 
+        //     const newPickup = await pickup***API.pickupFuntionName(tempPickupFormData)
+        //     // add this new pickup to user's pickups state
+        //     setUserPickups**TBD**(()=> pickupData***.concat(newPickup))
+        // } catch {
+        //     setNewGameFormData({
+        //         ...newGameFormData,
+        //         error: "User's game save failed, please try again."
+        //     })
+        // }
     };
     ////////////////////
     // event handlers //
     ////////////////////
     function handleChangeGame(evt) {
-        setNewGameFormData({
-            ...newGameFormData,
+        setNewPickupFormData({
+            ...newPickupFormData,
             [evt.target.name]: evt.target.value,
             error: ''
         })
