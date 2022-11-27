@@ -1,5 +1,5 @@
 const userGame = require('../../models/userGame');
-const Profile = require('../../models/userGame');
+// const Profile = require('../../models/userGame');//is this needed???
 const {ObjectId} = require('mongodb');
 const { deleteModel } = require('mongoose');
 
@@ -7,6 +7,8 @@ module.exports = {
     getUsersGames, 
     updateUsersGame,
     deleteUsersGame,
+    getUserGameEnums,
+    getSkillLevelEnums,
 };
 
 async function getUsersGames(req, res) {
@@ -23,4 +25,15 @@ async function updateUsersGame(req, res) {
 async function deleteUsersGame(req, res) {
     const deletedUserGame = await userGame.findOneAndRemove({_id:req.body._id})
     res.json(deletedUserGame);
+}
+
+async function getUserGameEnums(req, res) {
+    const userGameEnums = await userGame.schema.path('game').enumValues;
+    res.json(userGameEnums);
+
+}
+
+async function getSkillLevelEnums(req, res) {
+    const skillLevelEnums = await userGame.schema.path('skillLevel').enumValues;
+    res.json(skillLevelEnums);
 }

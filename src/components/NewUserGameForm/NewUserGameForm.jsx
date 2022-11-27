@@ -1,32 +1,21 @@
 import { useState, useEffect } from 'react'
 import * as usersGameAPI from '../../utilities/usersGame-api';
 
-export default function NewUserGameForm({user, usersGames, setUsersGames}) {
+export default function NewUserGameForm({user, usersGames, setUsersGames, userGameEnums, skillLevelEnums}) {
     
-    const skillOptions = ['1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'];
-    const gameOptions = ['Tennis', 'Pickleball', 'Badminton'];
-    
+    // const skillOptions = ['1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'];
+    // const gameOptions = ['Tennis', 'Pickleball', 'Badminton'];
+
     // QUESTION: what is the purpose of defining the element for useState? Does it keep track when you fill the variable with data/fields from a previous save? 
     const [newGameFormData, setNewGameFormData] = useState({
-        game: gameOptions[0],
-        skillLevel: skillOptions[1],
-        yearsExperience: '',
-        genderPreference: '',
-        gameLocation: '',
-        error: '',
+        game: userGameEnums[0],
+        skillLevel: skillLevelEnums[1],
+        // yearsExperience: '',
+        // genderPreference: '',
+        // gameLocation: '',
+        // error: '',
     });
-
-    ////////////////////
-    // event handlers //
-    ////////////////////
-    function handleChangeGame(evt) {
-        setNewGameFormData({
-            ...newGameFormData,
-            [evt.target.name]: evt.target.value,
-            error: ''
-        })
-    };
-
+    
     async function handleSubmitGame(evt) {
         evt.preventDefault()
         try {
@@ -41,6 +30,17 @@ export default function NewUserGameForm({user, usersGames, setUsersGames}) {
             })
         }
     };
+    ////////////////////
+    // event handlers //
+    ////////////////////
+    function handleChangeGame(evt) {
+        setNewGameFormData({
+            ...newGameFormData,
+            [evt.target.name]: evt.target.value,
+            error: ''
+        })
+    };
+
 
         return(        
              <>
@@ -53,7 +53,7 @@ export default function NewUserGameForm({user, usersGames, setUsersGames}) {
                             onChange={handleChangeGame}
                             name="game" 
                             id="game">
-                            {gameOptions.map((g) => (
+                            {userGameEnums.map((g) => (
                                 <option value={g} key={g}>{g}</option>
                             ))}
                         </select></div>
@@ -65,7 +65,7 @@ export default function NewUserGameForm({user, usersGames, setUsersGames}) {
                             name="skillLevel" 
                             id="skillLevel"
                         >
-                            {skillOptions.map((sl) => (
+                            {skillLevelEnums.map((sl) => (
                             <option value={sl} key={sl}>{sl}</option>
                             ))}
                         </select></div>
