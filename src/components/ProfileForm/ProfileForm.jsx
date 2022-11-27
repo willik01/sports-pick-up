@@ -9,7 +9,7 @@ export default function ProfileForm({user}) {
         error: '',
     })
 
-    const [profile, setProfile] = useState({
+    const [profile, setProfile] = useState({ //CHECK - is this really needed
         location: '',
         language: '',
         country: '',
@@ -18,9 +18,8 @@ export default function ProfileForm({user}) {
 
     useEffect(function() {
         async function getProfile() {
-            // const userProfile = await profilesAPI.getProfile(user._id);
-            const userProfile = await profilesAPI.getProfile();
-            setProfileFormData(userProfile);
+            const tempUserProfile = await profilesAPI.getProfile();
+            setProfileFormData(tempUserProfile);
         }
         getProfile();
     }, [])
@@ -39,7 +38,6 @@ export default function ProfileForm({user}) {
     async function handleSubmitProfile(evt) {
         evt.preventDefault()
         try {
-            // const countryToInsert = [country.[country:'US']]
             const profileFormDataCopy = {...profileFormData, user:user._id}
             delete profileFormDataCopy.error        
             const profile = await profilesAPI.saveProfile(profileFormDataCopy)
@@ -56,16 +54,16 @@ export default function ProfileForm({user}) {
         <div>
             <div className='styled-div'>
               <form autoComplete='off' onSubmit={handleSubmitProfile}>
-                <div className='styled-div-head'>User Name</div>
+                <div className='styled-div-head form-label'>User Name</div>
                 
-                <input disabled className='styled-div-rows' type="text" name="userName" value={user.name} />
-                <div className='styled-div-head'>Language</div>
+                <input className='styled-div-rows' type="text" name="userName" value={user.name} disabled readOnly />
+                <div className='styled-div-head form-label'>Language</div>
                 <input className='styled-div-rows' type="text" name="language" value={profileFormData.language} onChange={handleChange} />
-                <div className='styled-div-head'>Location </div>
+                <div className='styled-div-head form-label'>Location </div>
                 <input className='styled-div-rows' type="text" name="location" value={profileFormData.location} onChange={handleChange} />
-                <div className='styled-div-head'>Country</div>
+                <div className='styled-div-head form-label'>Country</div>
                 <input className='styled-div-rows' type="text" name="country" value={profileFormData.country} onChange={handleChange} />                
-                <button type="submit">Update Profile</button>
+                <button className='btn btn-primary'  type="submit" >Update Profile</button>
               </form>
             </div>
             <p className="error-message">&nbsp;{profileFormData.error}</p>

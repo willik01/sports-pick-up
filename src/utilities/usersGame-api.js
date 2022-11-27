@@ -7,6 +7,15 @@ export function getUsersGames(userId) {
   return sendRequest(`${BASE_URL}`, 'GET', userId);
 }
 
+// get enums from DB for display on frontend
+export function getUserGameEnums() {
+  return sendRequest(`${BASE_URL}/gameenums`);
+}
+
+export function getSkillLevelEnums() {
+  return sendRequest(`${BASE_URL}/skillenums`);
+}
+
 // update a single existing user's game or create if doesn't exist
 export function updateUsersGame(gameData) {
   return sendRequest(`${BASE_URL}/save`, 'POST', gameData);
@@ -14,6 +23,5 @@ export function updateUsersGame(gameData) {
 
 // delete a single existing user's game
 export function deleteUsersGame(gameId) {
-  console.log('here I am in ug-apis.js', gameId)
   return sendRequest(`${BASE_URL}/delete`, 'DELETE', gameId);
 }

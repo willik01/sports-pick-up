@@ -8,8 +8,8 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
     let displayErr
     async function deleteGame(evt) {
         try {
-            console.log('I am here in delete', game, 'usersGames', usersGames)
             await usersGameAPI.deleteUsersGame(game)
+            // remove game from state
             setUsersGames((current) => current.filter((deletedOne) => deletedOne._id !== game._id));
         } catch {
             displayErr = "Game Delete failed, please try again."
@@ -19,14 +19,22 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
     return(        
         <>
             <div className="styled-div" key={game._id}> 
-                <div>{game._id} </div>
-                <div>{game.game} </div>
-                <div>{game.gameLocation} </div>
-                <div>{game.skillLevel} </div>
-                <div>{game.yearsExperience} </div>
-                    <button onClick={deleteGame}>Delete</button>
+            <form>
+                <div className="styled-div-head" >Game ID</div>
+                <div className="styled-div-rows" >{game._id} </div>
+                <div className="styled-div-head" >Sport</div>
+                <div className="styled-div-rows" >{game.game} </div>
+                <div className="styled-div-head" >Desired Location</div>
+                <div className="styled-div-rows" >{game.gameLocation} </div>
+                <div className="styled-div-head" >Skill Level</div>
+                <div className="styled-div-rows" >{game.skillLevel} </div>
+                <div className="styled-div-head" >Years Experience</div>
+                <div className="styled-div-rows" >{game.yearsExperience} </div>
+                <button onClick={deleteGame}>Delete</button>
+                <p className="error-message">&nbsp;{displayErr}</p>
+            </form>
             </div>              
-            <p className="error-message">&nbsp;{displayErr}</p>
+            
         </>
         )
     }
