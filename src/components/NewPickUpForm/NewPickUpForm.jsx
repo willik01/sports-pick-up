@@ -22,7 +22,6 @@ export default function NewPickUpForm(
         gameLocation: '',
         // error: 'some error for testing',
     });
-    console.log('newPickupFormData: ',newPickupFormData, 'usergame & skil level ', skillLevelEnums, userGameEnums)
 
     async function handleSubmitPickup(evt) {
         evt.preventDefault()

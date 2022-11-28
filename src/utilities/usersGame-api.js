@@ -16,6 +16,10 @@ export function getSkillLevelEnums() {
   return sendRequest(`${BASE_URL}/skillenums`);
 }
 
+export function getCompetitivenessEnums() {
+  return sendRequest(`${BASE_URL}/compenums`);
+}
+
 // update a single existing user's game or create if doesn't exist
 export function updateUsersGame(gameData) {
   return sendRequest(`${BASE_URL}/save`, 'POST', gameData);

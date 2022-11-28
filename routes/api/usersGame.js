@@ -6,6 +6,7 @@ const usersGameCtrl = require('../../controllers/api/usersGame')
 router.get('/', usersGameCtrl.getUsersGames)
 router.get('/gameenums', usersGameCtrl.getUserGameEnums)
 router.get('/skillenums', usersGameCtrl.getSkillLevelEnums)
+router.get('/compenums', usersGameCtrl.getCompetitivenessEnums)
 router.post('/save', usersGameCtrl.updateUsersGame);
 router.delete('/delete', usersGameCtrl.deleteUsersGame);
 

@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const pickupSchema = new Schema({
-  creatorUser: {type: Schema.Types.ObjectId, ref: 'User', required: true },
-    playersRequested: {
-        type: Number, 
-        min: 1, max:3,},
+    creatorUser: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User', 
+        required: true },
+        playersRequested: {
+            type: Number, 
+            min: 1, max:3,
+    },
     game: {
         type: String, 
         enum: ['Tennis', 'Pickleball', 'Badminton'], 

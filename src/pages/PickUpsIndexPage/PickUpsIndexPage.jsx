@@ -20,7 +20,10 @@ export default function PickUpsIndexPage(
 
   return (
         <main>
-            <NewPickUpForm 
+          {/* wait for enums to populate from the DB */}
+            {skillLevelEnums.length && userGameEnums.length && competitivenessEnums.length 
+            ? 
+              <NewPickUpForm 
               user={user} 
               usersGames={usersGames} 
               // newUserPickup={newUserPickup}
@@ -32,7 +35,8 @@ export default function PickUpsIndexPage(
               userGameEnums={userGameEnums}
               skillLevelEnums={skillLevelEnums}
               competitivenessEnums={competitivenessEnums}
-            />
+              />
+            : 'Loading...'}
             <h1>All Pickups</h1>
             <table className="styled-table">
               <thead>
