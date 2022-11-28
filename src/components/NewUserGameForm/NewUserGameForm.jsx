@@ -10,9 +10,9 @@ export default function NewUserGameForm({user, usersGames, setUsersGames, userGa
     const [newGameFormData, setNewGameFormData] = useState({
         game: userGameEnums[0],
         skillLevel: skillLevelEnums[1],
-        // yearsExperience: '',
-        // genderPreference: '',
-        // gameLocation: '',
+        yearsExperience: '',
+        genderPreference: '',
+        gameLocation: '',
         // error: '',
     });
     

@@ -1,7 +1,7 @@
 const userGame = require('../../models/userGame');
 // const Profile = require('../../models/userGame');//is this needed???
 const {ObjectId} = require('mongodb');
-const { deleteModel } = require('mongoose');
+// const { deleteModel } = require('mongoose');
 
 module.exports = {
     getUsersGames, 
