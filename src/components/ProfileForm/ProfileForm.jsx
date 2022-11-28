@@ -16,6 +16,8 @@ export default function ProfileForm({user}) {
         error: '',
     })
 
+    const [ isAlertVisible, setIsAlertVisible ] = useState(false);
+
     useEffect(function() {
         async function getProfile() {
             const tempUserProfile = await profilesAPI.getProfile();
@@ -43,6 +45,10 @@ export default function ProfileForm({user}) {
             const profile = await profilesAPI.saveProfile(profileFormDataCopy)
             setProfile(profile)
             setProfileFormData({...profile, error: 'Profile Saved!'})
+            setIsAlertVisible(true);
+            setTimeout(() => {
+                setIsAlertVisible(false);
+                }, 3000);
         } catch {
             setProfileFormData({
                 ...profileFormData,
@@ -67,7 +73,8 @@ export default function ProfileForm({user}) {
                 <button className='btn-primary'  type="submit" >Update Profile</button>
               </form>
             </div>
-            <p className="error-message">&nbsp;{profileFormData.error}</p>
+            <p className="error-message">{isAlertVisible ? profileFormData.error : ''}</p>
+        
           </div>
     )
 }
