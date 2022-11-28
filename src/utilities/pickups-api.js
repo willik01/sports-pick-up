@@ -1,33 +1,32 @@
 import sendRequest from './send-request';
-
 const BASE_URL = '/api/pickups';
 
-// // Retrieve an unpaid order for the logged in user
-// export function getCart() {
-//   return sendRequest(`${BASE_URL}/cart`);
+// Retrieve all pickups
+export function getAllPickups() {
+  return sendRequest(`${BASE_URL}`);
+}
+
+// // Retrieve games of logged in user
+// export function getUsersGames(userId) {
+//   console.log('what is userId for in this query? usersGame-api.js: ', userId)
+//   return sendRequest(`${BASE_URL}`, 'GET', userId);
 // }
 
-// // Add an item to the cart
-// export function addItemToCart(itemId) {
-//   // Just send itemId for best security (no pricing)
-//   return sendRequest(`${BASE_URL}/cart/items/${itemId}`, 'POST');
+// // get enums from DB for display on frontend
+// export function getUserGameEnums() {
+//   return sendRequest(`${BASE_URL}/gameenums`);
 // }
 
-// // Update the item's qty in the cart
-// // Will add the item to the order if not currently in the cart
-// // Sending info via the data payload instead of a long URL
-// export function setItemQtyInCart(itemId, newQty) {
-//   return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { itemId, newQty });
+// export function getSkillLevelEnums() {
+//   return sendRequest(`${BASE_URL}/skillenums`);
 // }
 
-// // Updates the order's (cart's) isPaid property to true
-// export function checkout() {
-//   // Changing data on the server, so make it a POST request
-//   return sendRequest(`${BASE_URL}/cart/checkout`, 'POST');
+// update a single existing user's game or create if doesn't exist
+export function updatePickup(pickupData) {
+  return sendRequest(`${BASE_URL}/save`, 'POST', pickupData);
+}
+
+// // delete a single existing user's game
+// export function deleteUsersGame(gameId) {
+//   return sendRequest(`${BASE_URL}/delete`, 'DELETE', gameId);
 // }
-
-// export function getAllForUser() {
-//   return sendRequest(`${BASE_URL}/user`);
-// }
-
-

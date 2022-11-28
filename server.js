@@ -21,7 +21,9 @@ app.use('/api/users', require('./routes/api/users'))
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/profiles', ensureLoggedIn, require('./routes/api/profiles'))
 app.use('/api/usersGame', ensureLoggedIn, require('./routes/api/usersGame'))
-// app.use('/api/usersGame/save', ensureLoggedIn, require('./routes/api/usersGame'))
+//********need a separate line for user specific 
+app.use('/api/pickups', require('./routes/api/pickups'))
+//********need a separate line for user specific 
 
 // "catch-all" route that will match all GET requests that don't match an API route defined above
 app.get('/*', function(req, res) {

@@ -1,9 +1,32 @@
 import * as pickupsAPI from '../../utilities/pickups-api'
 import './PickUpsIndexPage.css';
+import { useState } from 'react'
+import NewPickUpForm from '../../components/NewPickUpForm/NewPickUpForm'
 
-export default function PickUpsIndexPage() {
-    return (
-        <>
+
+
+export default function PickUpsIndexPage({user, usersGames, userGameEnums, skillLevelEnums, competitivenessEnums}) {
+  // const [newUserPickup, setNewUserPickup] = useState([]);
+  //pickups created by user
+  const [usersPickups, setUsersPickups] = useState([]);
+  //All available pickups
+  const [allPickups, setAllPickups] = useState([]);
+
+  return (
+        <main>
+            <NewPickUpForm 
+              user={user} 
+              usersGames={usersGames} 
+              // newUserPickup={newUserPickup}
+              // setNewUserPickup={setNewUserPickup}
+              usersPickups={usersPickups}
+              setUsersPickups={setUsersPickups}
+              // allPickups={allPickups}
+              setAllPickups={setAllPickups}
+              userGameEnums={userGameEnums}
+              skillLevelEnums={skillLevelEnums}
+              competitivenessEnums={competitivenessEnums}
+            />
             <h1>All Pickups</h1>
             <table className="styled-table">
               <thead>
@@ -35,6 +58,6 @@ export default function PickUpsIndexPage() {
                   <% }); %> */}
                 </tbody>
             </table> 
-        </>
+        </main>
     )
 }

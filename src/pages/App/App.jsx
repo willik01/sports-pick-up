@@ -9,13 +9,12 @@ import NavBar from '../../components/NavBar/NavBar'
 import PickUpsIndexPage from '../PickUpsIndexPage/PickUpsIndexPage'
 import ProfilePage from '../ProfilePage/ProfilePage';
 
-
-
 export default function App() {
   const [user, setUser] = useState(getUser())
   const [usersGames, setUsersGames] = useState([]);
   const [userGameEnums, setUserGameEnums] = useState([])
   const [skillLevelEnums, setSkillLevelEnums] = useState([])
+  const [competitivenessEnums, setCompetitivenessEnums] = useState(['low', 'medium', 'high'])
 
   useEffect(function() {
   //Get user's games
@@ -32,13 +31,20 @@ export default function App() {
         } 
     getUserGameEnums();
     
-    //Get games enums from DB  
+    //Get skill level enums from DB  
     async function getSkillLevelEnums() {
       const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
       setSkillLevelEnums(tempSkillLevelEnums)
       } 
       getSkillLevelEnums();
       
+    //Get competitiveness enums from DB  
+    // async function getCompetitivenessEnums() {
+    //   const tempCompetitivenessEnums = await usersGameAPI.getCompetitivenessEnums();
+    //   setCompetitivenessEnums(tempCompetitivenessEnums)
+    //   } 
+    //   getCompetitivenessEnums();
+
   }, []); 
   
   return (
@@ -52,14 +58,16 @@ export default function App() {
               user={user} 
               usersGames={usersGames} 
               userGameEnums={userGameEnums}
-              skillLevelEnums={skillLevelEnums}                        
+              skillLevelEnums={skillLevelEnums} 
+              competitivenessEnums={competitivenessEnums}                       
             />} />
             <Route path="/pickups" 
               element={<PickUpsIndexPage 
               user={user} 
               usersGames={usersGames} 
               userGameEnums={userGameEnums}
-              skillLevelEnums={skillLevelEnums}            
+              skillLevelEnums={skillLevelEnums}      
+              competitivenessEnums={competitivenessEnums}
             />} />
             <Route path="/profile" 
               element={<ProfilePage 

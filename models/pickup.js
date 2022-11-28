@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const gamesSchema = new Schema({  //this is a direct copy of gamesSchema from User. How do I use the same code? 
-}, {
-  timestamp: true
-});
-
 const pickupSchema = new Schema({
   creatorUser: {type: Schema.Types.ObjectId, ref: 'User', required: true },
     playersRequested: {
