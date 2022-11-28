@@ -48,7 +48,7 @@ export default function ProfileForm({user}) {
             setIsAlertVisible(true);
             setTimeout(() => {
                 setIsAlertVisible(false);
-                }, 3000);
+                }, 2000);
         } catch {
             setProfileFormData({
                 ...profileFormData,

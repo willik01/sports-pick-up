@@ -1,8 +1,7 @@
 import './PickUpsIndexPage.css';
 import { useState } from 'react'
-import NewPickUpForm from '../../components/NewPickUpForm/NewPickUpForm'
-
-
+import NewPickUpForm from '../../components/NewPickupForm/NewPickupForm'
+import AllPickupsListForm from '../../components/AllPickupsListForm/AllPickupsListForm'
 
 export default function PickUpsIndexPage(
   {
@@ -37,7 +36,13 @@ export default function PickUpsIndexPage(
               competitivenessEnums={competitivenessEnums}
               />
             : 'Loading...'}
-            <h1>All Pickups</h1>
+
+            <AllPickupsListForm 
+              allPickups={allPickups}
+              setAllPickups={setAllPickups}
+            />
+
+            {/* <h1>All Pickups</h1>
             <table className="styled-table">
               <thead>
                 <tr>
@@ -63,7 +68,7 @@ export default function PickUpsIndexPage(
                   </tr>          
                   ))}
                 </tbody>
-            </table> 
+            </table>  */}
         </main>
     )
 }
