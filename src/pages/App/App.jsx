@@ -4,6 +4,7 @@ import './App.css';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
 import * as usersGameAPI from '../../utilities/usersGame-api';
+import * as pickupsAPI from '../../utilities/pickups-api'
 
 import NavBar from '../../components/NavBar/NavBar'
 import PickUpsIndexPage from '../PickUpsIndexPage/PickUpsIndexPage'
@@ -14,7 +15,9 @@ export default function App() {
   const [usersGames, setUsersGames] = useState([]);
   const [userGameEnums, setUserGameEnums] = useState([])
   const [skillLevelEnums, setSkillLevelEnums] = useState([])
-  const [competitivenessEnums, setCompetitivenessEnums] = useState(['low', 'medium', 'high'])
+  const [competitivenessEnums, setCompetitivenessEnums] = useState(['low', 'medium', 'high']) //ACTION: add query to pull db enums
+  //All available pickups
+  const [allPickups, setAllPickups] = useState([]);
 
   useEffect(function() {
   //Get user's games
@@ -24,19 +27,26 @@ export default function App() {
         }
     getUsersGames();
     
-    //Get games enums from DB  
-    async function getUserGameEnums() {
-        const tempUserGameEnums = await usersGameAPI.getUserGameEnums();
-        setUserGameEnums(tempUserGameEnums)
-        } 
-    getUserGameEnums();
-    
-    //Get skill level enums from DB  
-    async function getSkillLevelEnums() {
-      const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
-      setSkillLevelEnums(tempSkillLevelEnums)
+  //Get all pickups
+  async function getAllPickups() {
+    const tempAllPickups = await pickupsAPI.getAllPickups();
+    setAllPickups(tempAllPickups);
+    }
+  getAllPickups();
+
+  //Get games enums from DB  
+  async function getUserGameEnums() {
+      const tempUserGameEnums = await usersGameAPI.getUserGameEnums();
+      setUserGameEnums(tempUserGameEnums)
       } 
-      getSkillLevelEnums();
+  getUserGameEnums();
+    
+  //Get skill level enums from DB  
+  async function getSkillLevelEnums() {
+    const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
+    setSkillLevelEnums(tempSkillLevelEnums)
+    } 
+    getSkillLevelEnums();
       
     //Get competitiveness enums from DB  
     // async function getCompetitivenessEnums() {
@@ -57,14 +67,19 @@ export default function App() {
               element={<PickUpsIndexPage 
               user={user} 
               usersGames={usersGames} 
+              allPickups={allPickups}
+              setAllPickups={setAllPickups}
               userGameEnums={userGameEnums}
               skillLevelEnums={skillLevelEnums} 
-              competitivenessEnums={competitivenessEnums}                       
+              competitivenessEnums={competitivenessEnums}    
+
             />} />
             <Route path="/pickups" 
               element={<PickUpsIndexPage 
               user={user} 
               usersGames={usersGames} 
+              allPickups={allPickups}
+              setAllPickups={setAllPickups}
               userGameEnums={userGameEnums}
               skillLevelEnums={skillLevelEnums}      
               competitivenessEnums={competitivenessEnums}

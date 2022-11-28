@@ -6,6 +6,7 @@ export default function NewPickUpForm(
     usersGames, 
     usersPickups, 
     setUsersPickups, 
+    allPickups,
     setAllPickups,
     userGameEnums, 
     skillLevelEnums,
@@ -21,7 +22,8 @@ export default function NewPickUpForm(
         gameLocation: '',
         // error: 'some error for testing',
     });
-    
+    console.log('newPickupFormData: ',newPickupFormData, 'usergame & skil level ', skillLevelEnums, userGameEnums)
+
     async function handleSubmitPickup(evt) {
         evt.preventDefault()
         try {
@@ -31,6 +33,7 @@ export default function NewPickUpForm(
             const newPickup = await pickupsAPI.updatePickup(tempPickupFormData)
             // add this new pickup to user's pickups state
             setUsersPickups(()=> usersPickups.concat(newPickup))
+            setAllPickups(()=> allPickups.concat(newPickup))
         } catch {
             setNewPickupFormData({
                 ...newPickupFormData,
