@@ -17,6 +17,11 @@ const usersGameSchema = new Schema({
     }, 
     yearsExperience: Number, 
     genderPreference: String,
+    competitiveness: {
+        type: String, 
+        enum: ['High', 'Medium', 'Low'], 
+        default: 'Medium',
+    }, 
     gameLocation: {  //lat, long? Ultimately need to have an array of specific courts or game locations
         type: String, 
     }

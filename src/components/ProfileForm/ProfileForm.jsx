@@ -16,6 +16,8 @@ export default function ProfileForm({user}) {
         error: '',
     })
 
+    const [ isAlertVisible, setIsAlertVisible ] = useState(false);
+
     useEffect(function() {
         async function getProfile() {
             const tempUserProfile = await profilesAPI.getProfile();
@@ -42,6 +44,11 @@ export default function ProfileForm({user}) {
             delete profileFormDataCopy.error        
             const profile = await profilesAPI.saveProfile(profileFormDataCopy)
             setProfile(profile)
+            setProfileFormData({...profile, error: 'Profile Saved!'})
+            setIsAlertVisible(true);
+            setTimeout(() => {
+                setIsAlertVisible(false);
+                }, 2000);
         } catch {
             setProfileFormData({
                 ...profileFormData,
@@ -63,10 +70,11 @@ export default function ProfileForm({user}) {
                 <input className='styled-div-rows' type="text" name="location" value={profileFormData.location} onChange={handleChange} />
                 <div className='styled-div-head form-label'>Country</div>
                 <input className='styled-div-rows' type="text" name="country" value={profileFormData.country} onChange={handleChange} />                
-                <button className='btn btn-primary'  type="submit" >Update Profile</button>
+                <button className='btn-primary'  type="submit" >Update Profile</button>
               </form>
             </div>
-            <p className="error-message">&nbsp;{profileFormData.error}</p>
+            <p className="error-message">{isAlertVisible ? profileFormData.error : ''}</p>
+        
           </div>
     )
 }

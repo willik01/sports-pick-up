@@ -10,7 +10,7 @@ export default function NavBar({ user, setUser }) {
 
     return (
         <nav>
-            Welcome,<Link to="/profile"><b>{user.name}</b></Link>
+            Welcome,<Link to="/profile" state={{ from: "app" }}><b>{user.name}</b></Link>
             &nbsp; | &nbsp;
             <Link to="/pickups"> <b> Pick-Ups</b></Link>
             &nbsp; | &nbsp;

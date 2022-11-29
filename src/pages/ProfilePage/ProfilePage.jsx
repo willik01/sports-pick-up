@@ -7,45 +7,25 @@ import './ProfilePage.css';
 // import { useState, useEffect } from 'react'
 
 
-export default function ProfilePage({user, usersGames, setUsersGames, userGameEnums, skillLevelEnums}) {
+export default function ProfilePage({user, usersGames, setUsersGames, userGameEnums, skillLevelEnums, competitivenessEnums}) {
   
-  // const [usersGames, setUsersGames] = useState([]);
-  // const [userGameEnums, setUserGameEnums] = useState([])
-  // const [skillLevelEnums, setSkillLevelEnums] = useState([])
-  //   //Get user's games
-
-  // useEffect(function() {
-  //   async function getUsersGames() {
-  //       const tempUsersGames = await usersGameAPI.getUsersGames();
-  //       setUsersGames(tempUsersGames);
-  //       }
-  //   getUsersGames();
-  
-  //   async function getUserGameEnums() {
-  //       const tempUserGameEnums = await usersGameAPI.getUserGameEnums();
-  //       setUserGameEnums(tempUserGameEnums)
-  //       } 
-  //   getUserGameEnums();
-
-  //   async function getSkillLevelEnums() {
-  //     const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
-  //     setSkillLevelEnums(tempSkillLevelEnums)
-  //     } 
-  //     getSkillLevelEnums();
-      
-  // }, []); 
   
   return (
     <main className="profile-page">
         <ProfileForm user={user} />
         <UsersGamesListForm usersGames={usersGames} />
-        <NewUserGameForm 
-          user={user} 
-          usersGames={usersGames} 
-          setUsersGames={setUsersGames} 
-          userGameEnums={userGameEnums}
-          skillLevelEnums={skillLevelEnums}
-           />
+        {/* wait for enums to populate from the DB */}
+        {skillLevelEnums.length && userGameEnums.length && competitivenessEnums.length 
+          ? 
+          <NewUserGameForm 
+            user={user} 
+            usersGames={usersGames} 
+            setUsersGames={setUsersGames} 
+            userGameEnums={userGameEnums}
+            skillLevelEnums={skillLevelEnums}
+            competitivenessEnums={competitivenessEnums}
+            />
+          : 'loading...'};
     </main>
   );
 }

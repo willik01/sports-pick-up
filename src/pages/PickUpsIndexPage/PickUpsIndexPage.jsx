@@ -1,8 +1,7 @@
 import './PickUpsIndexPage.css';
 import { useState } from 'react'
-import NewPickUpForm from '../../components/NewPickUpForm/NewPickUpForm'
-
-
+import NewPickUpForm from '../../components/NewPickupForm/NewPickupForm'
+import AllPickupsListForm from '../../components/AllPickupsListForm/AllPickupsListForm'
 
 export default function PickUpsIndexPage(
   {
@@ -20,7 +19,10 @@ export default function PickUpsIndexPage(
 
   return (
         <main>
-            <NewPickUpForm 
+          {/* wait for enums to populate from the DB */}
+            {skillLevelEnums.length && userGameEnums.length && competitivenessEnums.length 
+            ? 
+              <NewPickUpForm 
               user={user} 
               usersGames={usersGames} 
               // newUserPickup={newUserPickup}
@@ -32,8 +34,15 @@ export default function PickUpsIndexPage(
               userGameEnums={userGameEnums}
               skillLevelEnums={skillLevelEnums}
               competitivenessEnums={competitivenessEnums}
+              />
+            : 'Loading...'}
+
+            <AllPickupsListForm 
+              allPickups={allPickups}
+              setAllPickups={setAllPickups}
             />
-            <h1>All Pickups</h1>
+
+            {/* <h1>All Pickups</h1>
             <table className="styled-table">
               <thead>
                 <tr>
@@ -59,7 +68,7 @@ export default function PickUpsIndexPage(
                   </tr>          
                   ))}
                 </tbody>
-            </table> 
+            </table>  */}
         </main>
     )
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import * as pickupsAPI from '../../utilities/pickups-api';
 
-export default function NewPickUpForm(
+export default function NewPickupForm(
     {user, 
-    usersGames, 
+    usersGames, //TODO: pull from usersGames to populate new pickup request. Also save a new game to the user profile if a userGame for that sport does not yet exist for the user. 
     usersPickups, 
     setUsersPickups, 
     allPickups,
@@ -17,12 +17,13 @@ export default function NewPickUpForm(
         playersRequested: 1,
         skillLevel: skillLevelEnums[2],
         competitiveness: competitivenessEnums[1],
-        // yearsExperience: '',
-        // genderPreference: '',
         gameLocation: '',
+        dateTimeRequested: Date(),
+        durationRequested: 60, //store as minutes
+        genderToPlayRequested: 'Any', 
+    
         // error: 'some error for testing',
     });
-    console.log('newPickupFormData: ',newPickupFormData, 'usergame & skil level ', skillLevelEnums, userGameEnums)
 
     async function handleSubmitPickup(evt) {
         evt.preventDefault()
@@ -95,6 +96,12 @@ return(
                     </select></div>
                 <div className="styled-div-head" >Desired Play Location</div>
                 <div className="styled-div-rows" ><input type="text" id="gameLocation" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div>
+                <div className="styled-div-head" >Time</div>
+                <div className="styled-div-rows" ><input type="text" id="dateTimeRequested" name="dateTimeRequested" value={newPickupFormData.dateTimeRequested} onChange={handlePickup} /></div>
+                <div className="styled-div-head" >Duration</div>
+                <div className="styled-div-rows" ><input type="number" id="durationRequested" name="durationRequested" value={newPickupFormData.durationRequested} onChange={handlePickup} /></div>
+                <div className="styled-div-head" >Gender Requested</div>
+                <div className="styled-div-rows" ><input type="text" id="genderToPlayRequested" name="genderToPlayRequested" value={newPickupFormData.genderToPlayRequested} onChange={handlePickup} /></div>
                 <button type="submit">Add New Pickup Request</button>
             </form>
         </div> 

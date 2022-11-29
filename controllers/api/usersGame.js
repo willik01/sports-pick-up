@@ -9,6 +9,7 @@ module.exports = {
     deleteUsersGame,
     getUserGameEnums,
     getSkillLevelEnums,
+    getCompetitivenessEnums,
 };
 
 async function getUsersGames(req, res) {
@@ -35,5 +36,10 @@ async function getUserGameEnums(req, res) {
 
 async function getSkillLevelEnums(req, res) {
     const skillLevelEnums = await userGame.schema.path('skillLevel').enumValues;
+    res.json(skillLevelEnums);
+}
+
+async function getCompetitivenessEnums(req, res) {
+    const skillLevelEnums = await userGame.schema.path('competitiveness').enumValues;
     res.json(skillLevelEnums);
 }

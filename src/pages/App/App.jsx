@@ -15,7 +15,8 @@ export default function App() {
   const [usersGames, setUsersGames] = useState([]);
   const [userGameEnums, setUserGameEnums] = useState([])
   const [skillLevelEnums, setSkillLevelEnums] = useState([])
-  const [competitivenessEnums, setCompetitivenessEnums] = useState(['low', 'medium', 'high']) //ACTION: add query to pull db enums
+  // const [competitivenessEnums, setCompetitivenessEnums] = useState(['low', 'medium', 'high']) //ACTION: add query to pull db enums
+  const [competitivenessEnums, setCompetitivenessEnums] = useState([]) //ACTION: add query to pull db enums
   //All available pickups
   const [allPickups, setAllPickups] = useState([]);
 
@@ -48,12 +49,12 @@ export default function App() {
     } 
     getSkillLevelEnums();
       
-    //Get competitiveness enums from DB  
-    // async function getCompetitivenessEnums() {
-    //   const tempCompetitivenessEnums = await usersGameAPI.getCompetitivenessEnums();
-    //   setCompetitivenessEnums(tempCompetitivenessEnums)
-    //   } 
-    //   getCompetitivenessEnums();
+    // Get competitiveness enums from DB  
+    async function getCompetitivenessEnums() {
+      const tempCompetitivenessEnums = await usersGameAPI.getCompetitivenessEnums();
+      setCompetitivenessEnums(tempCompetitivenessEnums)
+      } 
+      getCompetitivenessEnums();
 
   }, []); 
   
@@ -91,6 +92,7 @@ export default function App() {
               setUsersGames={setUsersGames} 
               userGameEnums={userGameEnums}
               skillLevelEnums={skillLevelEnums}
+              competitivenessEnums={competitivenessEnums}
             />} />
             {/* <Route path="/profile" element={<ProfilePage />} /> */}
           </Routes>

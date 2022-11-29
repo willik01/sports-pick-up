@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react'
 import * as usersGameAPI from '../../utilities/usersGame-api';
 
-export default function NewUserGameForm({user, usersGames, setUsersGames, userGameEnums, skillLevelEnums}) {
+export default function NewUserGameForm(
+    {user, 
+        usersGames, 
+        setUsersGames, 
+        userGameEnums, 
+        skillLevelEnums,
+        competitivenessEnums}) {
     
     // const skillOptions = ['1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'];
     // const gameOptions = ['Tennis', 'Pickleball', 'Badminton'];
@@ -9,7 +15,8 @@ export default function NewUserGameForm({user, usersGames, setUsersGames, userGa
     // QUESTION: what is the purpose of defining the element for useState? Does it keep track when you fill the variable with data/fields from a previous save? 
     const [newGameFormData, setNewGameFormData] = useState({
         game: userGameEnums[0],
-        skillLevel: skillLevelEnums[1],
+        skillLevel: skillLevelEnums[2],
+        competitiveness: competitivenessEnums[1],
         yearsExperience: '',
         genderPreference: '',
         gameLocation: '',
@@ -63,16 +70,26 @@ export default function NewUserGameForm({user, usersGames, setUsersGames, userGa
                             value={newGameFormData.skillLevel}
                             onChange={handleChangeGame}
                             name="skillLevel" 
-                            id="skillLevel"
-                        >
+                            id="skillLevel">
                             {skillLevelEnums.map((sl) => (
                             <option value={sl} key={sl}>{sl}</option>
                             ))}
                         </select></div>
                     <div className="styled-div-head" >Years Experience</div>
                     <div className="styled-div-rows" ><input type="number" id="yearsExperience" name="yearsExperience" value={newGameFormData.yearsExperience} onChange={handleChangeGame} /></div>
-                    <div className="styled-div-head" >Desired Play Location</div>
+                    <div className="styled-div-head" >Home Location</div>
                     <div className="styled-div-rows" ><input type="text" id="gameLocation" name="gameLocation" value={newGameFormData.gameLocation} onChange={handleChangeGame} /></div>
+                    <div className='styled-div-head' >Competitiveness</div>
+                    <div className="styled-div-rows" >
+                        <select 
+                            value={newGameFormData.competitiveness}
+                            onChange={handleChangeGame}
+                            name="competitiveness" 
+                            id="competitiveness">
+                            {competitivenessEnums.map((c) => (
+                                <option value={c} key={c}>{c}</option>
+                            ))}
+                    </select></div>
                     <button type="submit">Add New Sport Profile</button>
                 </form>
             </div> 
