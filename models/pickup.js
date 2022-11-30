@@ -25,7 +25,8 @@ const pickupSchema = new Schema({
         default: 'Medium',
     }, 
     gameLocation: { type: String, }, //lat, long? Ultimately need to have an array of specific courts or game locations 
-    dateTimeRequested: Date, //should contain date and time. What about TimeZone?
+    dateRequested: Date, //should contain date and time. What about TimeZone?
+    timeRequested: Date, 
     durationRequested:  {
         type: Number, 
         enum: ['30', '60', '90', '120']
