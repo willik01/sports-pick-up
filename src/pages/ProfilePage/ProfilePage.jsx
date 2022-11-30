@@ -15,7 +15,7 @@ export default function ProfilePage({user, usersGames, setUsersGames, userGameEn
         <ProfileForm user={user} />
         <UsersGamesListForm usersGames={usersGames} />
         {/* wait for enums to populate from the DB */}
-        {skillLevelEnums.length && userGameEnums.length && competitivenessEnums.length 
+        {(skillLevelEnums.length && userGameEnums.length && competitivenessEnums.length)
           ? 
           <NewUserGameForm 
             user={user} 
@@ -25,7 +25,7 @@ export default function ProfilePage({user, usersGames, setUsersGames, userGameEn
             skillLevelEnums={skillLevelEnums}
             competitivenessEnums={competitivenessEnums}
             />
-          : 'loading...'};
+          : <p className='error-message'> Loading...</p>}
     </main>
-  );
+  )
 }

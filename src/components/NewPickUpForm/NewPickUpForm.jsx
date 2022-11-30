@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import * as pickupsAPI from '../../utilities/pickups-api';
+import { TimePicker, DatePicker } from 'antd';
 
 export default function NewPickupForm(
     {user, 
@@ -18,7 +19,8 @@ export default function NewPickupForm(
         skillLevel: skillLevelEnums[2],
         competitiveness: competitivenessEnums[1],
         gameLocation: '',
-        dateTimeRequested: Date(),
+        dateRequested: Date(),
+        timeRequested: Date(),
         durationRequested: 60, //store as minutes
         genderToPlayRequested: 'Any', 
     
@@ -46,12 +48,27 @@ export default function NewPickupForm(
     // event handlers //
     ////////////////////
     function handlePickup(evt) {
+        console.log('evt name: ',evt.target.name)
         setNewPickupFormData({
             ...newPickupFormData,
             [evt.target.name]: evt.target.value,
             error: ''
         })
     };
+
+    //Date and time from https://ant.design/components
+    let handleCalChange = function (d, dateString) {
+        console.log('dateObject:',d, 'dateString: ', dateString);
+        setNewPickupFormData({...newPickupFormData, 'dateRequested':dateString})
+        console.log('new form data after date change',newPickupFormData)
+    };
+
+    let handleTimeChange = function (t, timeString) {
+        console.log('timeObject:',t, 'timeString: ', timeString);
+        setNewPickupFormData({...newPickupFormData, 'timeRequested':t})
+        console.log('new form data after time change',newPickupFormData)
+    };
+
 
 return(        
     <>
@@ -69,10 +86,11 @@ return(
                         ))}
                     </select></div>
                 <div className="styled-div-head" >Players Requested</div>
-                <div className="styled-div-rows" ><input type="number" id="playersRequested" name="playersRequested" value={newPickupFormData.playersRequested} onChange={handlePickup} /></div>
+                <div className="styled-div-rows" ><input required type="number" id="playersRequested" name="playersRequested" value={newPickupFormData.playersRequested} onChange={handlePickup} /></div>
                 <div className="styled-div-head" >Skill Level</div>
                 <div className="styled-div-rows" >
                     <select 
+                        required 
                         value={newPickupFormData.skillLevel}
                         onChange={handlePickup}
                         name="skillLevel" 
@@ -86,6 +104,7 @@ return(
                 <div className='styled-div-head' >Competitiveness</div>
                 <div className="styled-div-rows" >
                     <select 
+                        required
                         value={newPickupFormData.competitiveness}
                         onChange={handlePickup}
                         name="competitiveness" 
@@ -95,13 +114,17 @@ return(
                         ))}
                     </select></div>
                 <div className="styled-div-head" >Desired Play Location</div>
-                <div className="styled-div-rows" ><input type="text" id="gameLocation" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div>
+                <div className="styled-div-rows" ><input required type="text" id="gameLocation" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div>
                 <div className="styled-div-head" >Time</div>
-                <div className="styled-div-rows" ><input type="text" id="dateTimeRequested" name="dateTimeRequested" value={newPickupFormData.dateTimeRequested} onChange={handlePickup} /></div>
+                <TimePicker required minuteStep={15} use12Hours format='HH:mm a' className='styled-div-rows' id="dateTimeRequested" name="dateTimeRequested"  onChange={handleTimeChange} />
+                {/* <div className="styled-div-rows" ><input type="text" id="dateTimeRequested" name="dateTimeRequested" value={newPickupFormData.dateTimeRequested} onChange={handlePickup} /></div> */}
+                <div className="styled-div-head" >Date</div>
+                <DatePicker required className="styled-div-rows" format='MMM-DD-YYYY' onChange={handleCalChange}/>
+                {/* <DatePicker format='MMM-DD-YYYY' id="dateRequested" name="dateRequested" value={newPickupFormData.dateRequested} onChange={handlePickup} /> */}
                 <div className="styled-div-head" >Duration</div>
-                <div className="styled-div-rows" ><input type="number" id="durationRequested" name="durationRequested" value={newPickupFormData.durationRequested} onChange={handlePickup} /></div>
+                <div className="styled-div-rows" ><input required type="number" id="durationRequested" name="durationRequested" value={newPickupFormData.durationRequested} onChange={handlePickup} /></div>
                 <div className="styled-div-head" >Gender Requested</div>
-                <div className="styled-div-rows" ><input type="text" id="genderToPlayRequested" name="genderToPlayRequested" value={newPickupFormData.genderToPlayRequested} onChange={handlePickup} /></div>
+                <div className="styled-div-rows" ><input required type="text" id="genderToPlayRequested" name="genderToPlayRequested" value={newPickupFormData.genderToPlayRequested} onChange={handlePickup} /></div>
                 <button type="submit">Add New Pickup Request</button>
             </form>
         </div> 

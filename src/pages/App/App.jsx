@@ -60,46 +60,46 @@ export default function App() {
   
   return (
     <main className="App container" >
-      { user ? 
-        <>
-          <NavBar user={user} setUser={setUser} />
-          <Routes>
-            <Route path="/" 
-              element={<PickUpsIndexPage 
-              user={user} 
-              usersGames={usersGames} 
-              allPickups={allPickups}
-              setAllPickups={setAllPickups}
-              userGameEnums={userGameEnums}
-              skillLevelEnums={skillLevelEnums} 
-              competitivenessEnums={competitivenessEnums}    
+        { user ? 
+          <>
+            <NavBar user={user} setUser={setUser} />
+            <Routes>
+              <Route path="/" 
+                element={<PickUpsIndexPage 
+                user={user} 
+                usersGames={usersGames} 
+                allPickups={allPickups}
+                setAllPickups={setAllPickups}
+                userGameEnums={userGameEnums}
+                skillLevelEnums={skillLevelEnums} 
+                competitivenessEnums={competitivenessEnums}    
 
-            />} />
-            <Route path="/pickups" 
-              element={<PickUpsIndexPage 
-              user={user} 
-              usersGames={usersGames} 
-              allPickups={allPickups}
-              setAllPickups={setAllPickups}
-              userGameEnums={userGameEnums}
-              skillLevelEnums={skillLevelEnums}      
-              competitivenessEnums={competitivenessEnums}
-            />} />
-            <Route path="/profile" 
-              element={<ProfilePage 
-              user={user} 
-              usersGames={usersGames} 
-              setUsersGames={setUsersGames} 
-              userGameEnums={userGameEnums}
-              skillLevelEnums={skillLevelEnums}
-              competitivenessEnums={competitivenessEnums}
-            />} />
-            {/* <Route path="/profile" element={<ProfilePage />} /> */}
-          </Routes>
-        </>
-        :
-        <AuthPage user={user} setUser={setUser}/>
+              />} />
+              <Route path="/pickups" 
+                element={<PickUpsIndexPage 
+                user={user} 
+                usersGames={usersGames} 
+                allPickups={allPickups}
+                setAllPickups={setAllPickups}
+                userGameEnums={userGameEnums}
+                skillLevelEnums={skillLevelEnums}      
+                competitivenessEnums={competitivenessEnums}
+              />} />
+              <Route path="/profile" 
+                element={<ProfilePage 
+                user={user} 
+                usersGames={usersGames} 
+                setUsersGames={setUsersGames} 
+                userGameEnums={userGameEnums}
+                skillLevelEnums={skillLevelEnums}
+                competitivenessEnums={competitivenessEnums}
+              />} />
+            </Routes>
+          </>
+          :
+          <AuthPage user={user} setUser={setUser}/>
       }
+
     </main>
   );
 }
