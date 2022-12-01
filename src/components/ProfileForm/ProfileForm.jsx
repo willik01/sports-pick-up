@@ -9,12 +9,12 @@ export default function ProfileForm({user}) {
         error: '',
     })
 
-    const [profile, setProfile] = useState({ //CHECK - is this really needed
-        location: '',
-        language: '',
-        country: '',
-        error: '',
-    })
+    // const [profile, setProfile] = useState({ //CHECK - is this really needed
+    //     location: '',
+    //     language: '',
+    //     country: '',
+    //     error: '',
+    // })
 
     const [ isAlertVisible, setIsAlertVisible ] = useState(false);
 
@@ -43,8 +43,9 @@ export default function ProfileForm({user}) {
             const profileFormDataCopy = {...profileFormData, user:user._id}
             delete profileFormDataCopy.error        
             const profile = await profilesAPI.saveProfile(profileFormDataCopy)
-            setProfile(profile)
-            setProfileFormData({...profile, error: 'Profile Saved!'})
+            // setProfile(profile)
+            // setProfileFormData({...profile, error: 'Profile Saved!'})
+            setProfileFormData({...profileFormDataCopy, error: 'Profile Saved!'})
             setIsAlertVisible(true);
             setTimeout(() => {
                 setIsAlertVisible(false);

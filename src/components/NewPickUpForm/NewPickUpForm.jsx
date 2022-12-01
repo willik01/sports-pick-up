@@ -2,6 +2,8 @@ import { useState } from 'react';
 import * as pickupsAPI from '../../utilities/pickups-api';
 import { TimePicker, DatePicker } from 'antd';
 
+import SearchLocationInput from '../../SearchLocationInput';
+
 export default function NewPickupForm(
     {user, 
     usersGames, //TODO: pull from usersGames to populate new pickup request. Also save a new game to the user profile if a userGame for that sport does not yet exist for the user. 
@@ -30,14 +32,16 @@ export default function NewPickupForm(
     async function handleSubmitPickup(evt) {
         evt.preventDefault()
         try {
-            const tempPickupFormData = {...newPickupFormData, user:user._id}
+            const tempPickupFormData = {...newPickupFormData, user:user._id, gameLocation:document.getElementById('gameLocation').value}
             delete tempPickupFormData.error
+            console.log(document.getElementById('gameLocation').value)
             //Should this be a simple insert vs. upsert? 
             const newPickup = await pickupsAPI.updatePickup(tempPickupFormData)
             // add this new pickup to user's pickups state
             setUsersPickups(()=> usersPickups.concat(newPickup))
             setAllPickups(()=> allPickups.concat(newPickup))
         } catch {
+            console.log(document.getElementById('gameLocation').value)
             setNewPickupFormData({
                 ...newPickupFormData,
                 error: "Requested pickup save failed, please try again."
@@ -48,7 +52,6 @@ export default function NewPickupForm(
     // event handlers //
     ////////////////////
     function handlePickup(evt) {
-        console.log('evt name: ',evt.target.name)
         setNewPickupFormData({
             ...newPickupFormData,
             [evt.target.name]: evt.target.value,
@@ -58,15 +61,19 @@ export default function NewPickupForm(
 
     //Date and time from https://ant.design/components
     let handleCalChange = function (d, dateString) {
-        console.log('dateObject:',d, 'dateString: ', dateString);
         setNewPickupFormData({...newPickupFormData, 'dateRequested':dateString})
-        console.log('new form data after date change',newPickupFormData)
     };
 
     let handleTimeChange = function (t, timeString) {
-        console.log('timeObject:',t, 'timeString: ', timeString);
+        // console.log('timeObject:',t, 'timeString: ', timeString);
         setNewPickupFormData({...newPickupFormData, 'timeRequested':t})
-        console.log('new form data after time change',newPickupFormData)
+        // console.log('new form data after time change',newPickupFormData)
+    };
+    
+    function handleLocChange(evt) {
+        console.log("evt:",evt )
+        // setNewPickupFormData({...newPickupFormData, 'gameLocation':location})
+        // console.log('new form data after time change',newPickupFormData)
     };
 
 
@@ -99,8 +106,6 @@ return(
                         <option value={sl} key={sl}>{sl}</option>
                         ))}
                     </select></div>
-                {/* <div className="styled-div-head" >Years Experience</div>
-                <div className="styled-div-rows" ><input type="number" id="yearsExperience" name="yearsExperience" value={newPickupFormData.yearsExperience} onChange={handlePickup} /></div> */}
                 <div className='styled-div-head' >Competitiveness</div>
                 <div className="styled-div-rows" >
                     <select 
@@ -114,7 +119,10 @@ return(
                         ))}
                     </select></div>
                 <div className="styled-div-head" >Desired Play Location</div>
-                <div className="styled-div-rows" ><input required type="text" id="gameLocation" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div>
+                <SearchLocationInput onChange={handleLocChange} />
+                {/* <SearchLocationInput onChange={handleLocChange} /> */}
+                {/* <SearchLocationInput onChange={() => null} /> */}
+                {/* <div className="styled-div-rows" ><input required type="text" id="autocomplete" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div> */}
                 <div className="styled-div-head" >Time</div>
                 <TimePicker required minuteStep={15} use12Hours format='HH:mm a' className='styled-div-rows' id="dateTimeRequested" name="dateTimeRequested"  onChange={handleTimeChange} />
                 {/* <div className="styled-div-rows" ><input type="text" id="dateTimeRequested" name="dateTimeRequested" value={newPickupFormData.dateTimeRequested} onChange={handlePickup} /></div> */}
