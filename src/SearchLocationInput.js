@@ -29,7 +29,7 @@ function handleScriptLoad(updateQuery, autoCompleteRef) {
     autoCompleteRef.current,
     { types: ["(cities)"], componentRestrictions: { country: "us" } }
   );
-  autoComplete.setFields(["address_components", "formatted_address"]);
+  autoComplete.setFields(["address_components", "formatted_address", "name"]);
   autoComplete.addListener("place_changed", () =>
     handlePlaceSelect(updateQuery)
   );
@@ -37,7 +37,9 @@ function handleScriptLoad(updateQuery, autoCompleteRef) {
 
 async function handlePlaceSelect(updateQuery) {
   const addressObject = autoComplete.getPlace();
-  const query = addressObject.formatted_address;
+  const query = addressObject.name;
+  // const query = addressObject.formatted_address;
+  // console.log("place name",addressObject.name)
   updateQuery(query);
   console.log(addressObject);
 }

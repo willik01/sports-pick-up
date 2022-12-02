@@ -51,6 +51,9 @@ export default function NewUserGameForm(
 
         return(        
              <>
+             <p></p>
+             <div className='element-border'>
+             
              <div className="styled-div"> 
                 <form autoComplete="off" onSubmit={handleSubmitGame}>  
                     <div className='styled-div-head' >Sport</div>
@@ -94,6 +97,7 @@ export default function NewUserGameForm(
                 </form>
             </div> 
             <p className="error-message">&nbsp;{newGameFormData.error}</p>
+        </div>
         </>
         )
     }

@@ -59,7 +59,7 @@ export default function ProfileForm({user}) {
     }
 
     return(
-        <div>
+        <div className='element-border'>
             <div className='styled-div'>
               <form autoComplete='off' onSubmit={handleSubmitProfile}>
                 <div className='styled-div-head form-label'>User Name</div>

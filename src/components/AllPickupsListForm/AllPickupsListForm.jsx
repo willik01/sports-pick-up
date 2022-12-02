@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import * as pickupsAPI from '../../utilities/pickups-api';
+// import { useState } from 'react'
+// import * as pickupsAPI from '../../utilities/pickups-api';
+import { Link } from 'react-router-dom'
 
 export default function AllPickupsListForm(
     {
@@ -11,18 +12,18 @@ return(
     <>
         <h1>All Pickups</h1>
         <table className="styled-table">
-            <caption>All Pickups Caption</caption>
             <thead>
             <tr>
                 <th>Sport</th>
                 <th>Players Needed</th>
                 <th>Skill Level</th>
                 <th>Location</th>
-                <th>competitiveness</th>
+                <th>Competitiveness</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Duration</th>
-                <th>Gender</th>
+                {/* <th>Gender</th> */}
+                <th />
             </tr>
             </thead>
             <tbody>
@@ -36,7 +37,8 @@ return(
                 <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
                 <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                 <td>{pickup.durationRequested}</td>
-                <td>{pickup.genderToPlayRequested}</td>
+                {/* <td>{pickup.genderToPlayRequested}</td> */}
+                <td><Link to="/profile" >View</Link></td>
                 </tr>          
                 ))}
             </tbody>
