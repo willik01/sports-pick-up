@@ -18,7 +18,8 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
 
     return(        
         <>
-            <div className="styled-div" key={game._id}> 
+            <p></p>
+            <div className="element-border styled-div" key={game._id}> 
             <form>
                 <div className="styled-div-head" >Sport</div>
                 <div className="styled-div-rows" >{game.game} </div>

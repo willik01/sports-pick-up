@@ -1,9 +1,9 @@
-import './PickUpsIndexPage.css';
+import './PickupsIndexPage.css';
 import { useState } from 'react'
 import NewPickUpForm from '../../components/NewPickupForm/NewPickupForm'
 import AllPickupsListForm from '../../components/AllPickupsListForm/AllPickupsListForm'
 
-export default function PickUpsIndexPage(
+export default function PickupsIndexPage(
   {
     user, 
     usersGames, 
@@ -18,7 +18,11 @@ export default function PickUpsIndexPage(
   const [usersPickups, setUsersPickups] = useState([]);
 
   return (
-        <main>
+    <main>
+          <AllPickupsListForm 
+            allPickups={allPickups}
+            setAllPickups={setAllPickups}
+          />
           {/* wait for enums to populate from the DB */}
             {skillLevelEnums.length && userGameEnums.length && competitivenessEnums.length 
             ? 
@@ -37,38 +41,6 @@ export default function PickUpsIndexPage(
               />
             : 'Loading...'}
 
-            <AllPickupsListForm 
-              allPickups={allPickups}
-              setAllPickups={setAllPickups}
-            />
-
-            {/* <h1>All Pickups</h1>
-            <table className="styled-table">
-              <thead>
-                <tr>
-                  <th>Sport</th>
-                  <th>Players Needed</th>
-                  <th>Skill Level</th>
-                  <th>Location</th>
-                  <th>competitiveness</th>
-                  <th>Date</th>
-                  <th>Duration</th>
-                </tr>
-              </thead>
-              <tbody>
-                  {allPickups.map((pickup, key) => (
-                  <tr key={key}>
-                    <td>{pickup.game}</td>
-                    <td>{pickup.playersRequested}</td>
-                    <td>{pickup.skillLevel}</td>
-                    <td>{pickup.gameLocation}</td>  
-                    <td>{pickup.competitiveness}</td>
-                    <td>pickup.dateTimeRequested.toLocaleDateString</td>
-                    <td>pickup.durationRequested</td>
-                  </tr>          
-                  ))}
-                </tbody>
-            </table>  */}
         </main>
     )
 }

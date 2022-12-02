@@ -7,7 +7,7 @@ import * as usersGameAPI from '../../utilities/usersGame-api';
 import * as pickupsAPI from '../../utilities/pickups-api'
 
 import NavBar from '../../components/NavBar/NavBar'
-import PickUpsIndexPage from '../PickUpsIndexPage/PickUpsIndexPage'
+import PickupsIndexPage from '../PickupsIndexPage/PickupsIndexPage'
 import ProfilePage from '../ProfilePage/ProfilePage';
 
 export default function App() {
@@ -65,7 +65,7 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               <Route path="/" 
-                element={<PickUpsIndexPage 
+                element={<PickupsIndexPage 
                 user={user} 
                 usersGames={usersGames} 
                 allPickups={allPickups}
@@ -76,7 +76,7 @@ export default function App() {
 
               />} />
               <Route path="/pickups" 
-                element={<PickUpsIndexPage 
+                element={<PickupsIndexPage 
                 user={user} 
                 usersGames={usersGames} 
                 allPickups={allPickups}
@@ -94,6 +94,15 @@ export default function App() {
                 skillLevelEnums={skillLevelEnums}
                 competitivenessEnums={competitivenessEnums}
               />} />
+                {/* <Route path="/pickups/:id" 
+                element={<PickupDetailPage 
+                user={user} 
+                usersGames={usersGames} 
+                setUsersGames={setUsersGames} 
+                userGameEnums={userGameEnums}
+                skillLevelEnums={skillLevelEnums}
+                competitivenessEnums={competitivenessEnums}
+              />} /> */}
             </Routes>
           </>
           :

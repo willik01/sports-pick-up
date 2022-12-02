@@ -79,6 +79,9 @@ export default function NewPickupForm(
 
 return(        
     <>
+        <hr />
+        <h2>Add New Pickup Request</h2>
+        <hr />
         <div className="styled-div"> 
             <form autoComplete="off" onSubmit={handleSubmitPickup}>  
                 <div className='styled-div-head' >Sport</div>
