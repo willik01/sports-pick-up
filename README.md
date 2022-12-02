@@ -2,12 +2,11 @@
 Starting with Tennis, Pickleball and Badminton, this pick-up sports app allows users to propose time & locations to play their sport so that others can find and accept their matches. 
 
  ## Game Screenshots: 
- <img src="public/images/sc-homepage.png" width="900">
+ <img src="public/images/SPU_profile.png" width="900">
 
- <img src="public/images/sc-user-profile.png"
-  width="900">
+ <img src="public/images/SPU_pickups.png" width="900">
  
- <img src="public/images/sc-create-pu.png" width="900">
+
 
  ## Technologies Used: 
  - MongoDB/Mongoose
