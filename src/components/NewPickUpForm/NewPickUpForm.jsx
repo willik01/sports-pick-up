@@ -32,16 +32,14 @@ export default function NewPickupForm(
     async function handleSubmitPickup(evt) {
         evt.preventDefault()
         try {
+            //Pull location value from field because it is not auto updated in newPickupFormData
             const tempPickupFormData = {...newPickupFormData, user:user._id, gameLocation:document.getElementById('gameLocation').value}
             delete tempPickupFormData.error
-            console.log(document.getElementById('gameLocation').value)
-            //Should this be a simple insert vs. upsert? 
             const newPickup = await pickupsAPI.updatePickup(tempPickupFormData)
             // add this new pickup to user's pickups state
             setUsersPickups(()=> usersPickups.concat(newPickup))
             setAllPickups(()=> allPickups.concat(newPickup))
         } catch {
-            console.log(document.getElementById('gameLocation').value)
             setNewPickupFormData({
                 ...newPickupFormData,
                 error: "Requested pickup save failed, please try again."
@@ -70,11 +68,11 @@ export default function NewPickupForm(
         // console.log('new form data after time change',newPickupFormData)
     };
     
-    function handleLocChange(evt) {
-        console.log("evt:",evt )
-        // setNewPickupFormData({...newPickupFormData, 'gameLocation':location})
-        // console.log('new form data after time change',newPickupFormData)
-    };
+    // function handleLocChange(evt) {
+    //     // console.log("evt:",evt )
+    //     // setNewPickupFormData({...newPickupFormData, 'gameLocation':location})
+    //     // console.log('new form data after time change',newPickupFormData)
+    // };
 
 
 return(        
@@ -122,7 +120,7 @@ return(
                         ))}
                     </select></div>
                 <div className="styled-div-head" >Desired Play Location</div>
-                <SearchLocationInput onChange={handleLocChange} />
+                <SearchLocationInput />
                 {/* <SearchLocationInput onChange={handleLocChange} /> */}
                 {/* <SearchLocationInput onChange={() => null} /> */}
                 {/* <div className="styled-div-rows" ><input required type="text" id="autocomplete" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div> */}
