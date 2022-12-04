@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
 import AuthPage from '../AuthPage/AuthPage'
@@ -95,19 +95,32 @@ export default function App() {
                 skillLevelEnums={skillLevelEnums}
                 competitivenessEnums={competitivenessEnums}
               />} />
-                {/* <Route path="/pickups/:id" 
-                element={<PickupDetailPage 
-                user={user} 
-                usersGames={usersGames} 
-                setUsersGames={setUsersGames} 
-                userGameEnums={userGameEnums}
-                skillLevelEnums={skillLevelEnums}
-                competitivenessEnums={competitivenessEnums}
+
+
+              {/* <Route path="/pickups/:id" 
+              element={<PickupDetailPage 
+              user={user} 
+              usersGames={usersGames} 
+              setUsersGames={setUsersGames} 
+              userGameEnums={userGameEnums}
+              skillLevelEnums={skillLevelEnums}
+              competitivenessEnums={competitivenessEnums}
               />} /> */}
             </Routes>
           </>
           :
-          <><AuthPage user={user} setUser={setUser}/>
+          <>
+        <nav>
+            <Link to="/signinup" state={{ from: "app" }}> <b> Sign-In, Sign-Up</b></Link>
+        </nav>
+          <Routes>
+              <Route path="/signinup" 
+                element={<AuthPage 
+                user={user} 
+                setUser={setUser}
+              /> }/>
+          </Routes>
+
           <AllPickupsListForm 
                 user={user} 
                 usersGames={usersGames} 
@@ -119,6 +132,8 @@ export default function App() {
 
               />
             </>
+
+
       }
 
     </main>
