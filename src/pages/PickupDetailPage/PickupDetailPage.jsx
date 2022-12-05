@@ -1,4 +1,4 @@
-export default function PickupsIndexPage(
+export default function PickupsDetailPage(
   {
     // user, 
   }) {

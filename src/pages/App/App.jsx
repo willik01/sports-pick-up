@@ -10,7 +10,7 @@ import AuthPage from '../AuthPage/AuthPage'
 import PickupsIndexPage from '../PickupsIndexPage/PickupsIndexPage'
 import ProfilePage from '../ProfilePage/ProfilePage';
 import AllPickupsListForm from '../../components/AllPickupsListForm/AllPickupsListForm'
-import PickupDetailPage from '../PickupDetailPage/PickupsDetailPage';
+import PickupDetailPage from '../PickupDetailPage/PickupDetailPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -96,9 +96,15 @@ export default function App() {
                 skillLevelEnums={skillLevelEnums}
                 competitivenessEnums={competitivenessEnums}
               />} />
-              <Route path="/pickups/:id">
-                <PickupDetailPage />
-              </Route> 
+              <Route path="/pickups/:id"
+                element={<PickupDetailPage 
+                  // user={user} 
+                  // usersGames={usersGames} 
+                  // setUsersGames={setUsersGames} 
+                  // userGameEnums={userGameEnums}
+                  // skillLevelEnums={skillLevelEnums}
+                  // competitivenessEnums={competitivenessEnums}
+                />} />
             </Routes>
           </>
           :
