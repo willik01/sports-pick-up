@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 import { getUser } from '../../utilities/users-service'
-import AuthPage from '../AuthPage/AuthPage'
 import * as usersGameAPI from '../../utilities/usersGame-api';
 import * as pickupsAPI from '../../utilities/pickups-api'
 
 import NavBar from '../../components/NavBar/NavBar'
+import AuthPage from '../AuthPage/AuthPage'
 import PickupsIndexPage from '../PickupsIndexPage/PickupsIndexPage'
 import ProfilePage from '../ProfilePage/ProfilePage';
 import AllPickupsListForm from '../../components/AllPickupsListForm/AllPickupsListForm'
+import PickupDetailPage from '../PickupDetailPage/PickupsDetailPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -95,17 +96,9 @@ export default function App() {
                 skillLevelEnums={skillLevelEnums}
                 competitivenessEnums={competitivenessEnums}
               />} />
-
-
-              {/* <Route path="/pickups/:id" 
-              element={<PickupDetailPage 
-              user={user} 
-              usersGames={usersGames} 
-              setUsersGames={setUsersGames} 
-              userGameEnums={userGameEnums}
-              skillLevelEnums={skillLevelEnums}
-              competitivenessEnums={competitivenessEnums}
-              />} /> */}
+              <Route path="/pickups/:id">
+                <PickupDetailPage />
+              </Route> 
             </Routes>
           </>
           :

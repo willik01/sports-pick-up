@@ -28,22 +28,20 @@ return(
             </thead>
             <tbody>
                 {allPickups.map((pickup, key) => (
-                <tr key={key}>
-                <td>{pickup.game}</td>
-                <td>{pickup.playersRequested}</td>
-                <td>{pickup.skillLevel}</td>
-                <td>{pickup.gameLocation}</td>  
-                <td>{pickup.competitiveness}</td>
-                <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
-                <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
-                <td>{pickup.durationRequested}</td>
-                {/* <td>{pickup.genderToPlayRequested}</td> */}
-                <td><Link to="/profile" >View</Link></td>
-                </tr>          
+                    <tr key={key}>
+                        <td>{pickup.game}</td>
+                        <td>{pickup.playersRequested}</td>
+                        <td>{pickup.skillLevel}</td>
+                        <td>{pickup.gameLocation}</td>  
+                        <td>{pickup.competitiveness}</td>
+                        <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
+                        <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
+                        <td>{pickup.durationRequested}</td>
+                        <td><Link to={`/pickups/${pickup._id}`}>View</Link></td>
+                    </tr>          
                 ))}
             </tbody>
-        </table> 
-
+        </table>
     </>
     )
 }
