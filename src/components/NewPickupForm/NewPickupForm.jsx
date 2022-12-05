@@ -39,11 +39,13 @@ export default function NewPickupForm(
             // add this new pickup to user's pickups state
             setUsersPickups(()=> usersPickups.concat(newPickup))
             setAllPickups(()=> allPickups.concat(newPickup))
-        } catch {
+        } catch(err) {
             setNewPickupFormData({
                 ...newPickupFormData,
                 error: "Requested pickup save failed, please try again."
+                
             })
+            console.log('NewPickupForm Error',err)
         }
     };
     ////////////////////

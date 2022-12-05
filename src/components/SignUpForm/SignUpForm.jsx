@@ -28,11 +28,12 @@ export default function SignUpForm({ setUser }) {
             delete formDataCopy.confirm
             const user = await signUp(formDataCopy)
             setUser(user)
-        } catch {
+        } catch(err) {
             setFormData({
                 ...formData,
                 error: 'Sign Up Failed - Try Again'
             })
+            console.log('SignUpForm Error',err)
         }
     }
 

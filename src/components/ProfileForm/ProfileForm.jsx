@@ -50,11 +50,12 @@ export default function ProfileForm({user}) {
             setTimeout(() => {
                 setIsAlertVisible(false);
                 }, 2000);
-        } catch {
+        } catch(err) {
             setProfileFormData({
                 ...profileFormData,
                 error: 'Profile save failed, please try again.'
             })
+            console.log('ProfileForm Error',err)
         }
     }
 

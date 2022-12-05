@@ -30,11 +30,13 @@ export default function NewUserGameForm(
             delete newGameFormDataCopy.error
             const newUserGame = await usersGameAPI.updateUsersGame(newGameFormDataCopy)
             setUsersGames(()=> usersGames.concat(newUserGame))
-        } catch {
+        } catch(err) {
             setNewGameFormData({
                 ...newGameFormData,
                 error: "User's game save failed, please try again."
+
             })
+            console.log('NewUserGameForm Error: ',err)
         }
     };
     ////////////////////

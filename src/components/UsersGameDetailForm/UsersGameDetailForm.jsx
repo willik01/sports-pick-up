@@ -11,8 +11,9 @@ export default function UsersGameDetailForm({game, usersGames, setUsersGames}) {
             await usersGameAPI.deleteUsersGame(game)
             // remove game from state
             setUsersGames((current) => current.filter((deletedOne) => deletedOne._id !== game._id));
-        } catch {
+        } catch(err) {
             displayErr = "Game Delete failed, please try again."
+            console.log('NewUserGameForm Error',err)
         }
     }
 
