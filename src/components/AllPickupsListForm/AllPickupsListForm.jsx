@@ -37,7 +37,7 @@ return(
                         <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
                         <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                         <td>{pickup.durationRequested}</td>
-                        <td><Link to={`/pickups/${pickup._id}`}>View</Link></td>
+                        <td><Link to={`/pickups/${pickup._id}`} state={{ from: "app" }}>View</Link></td>
                     </tr>          
                 ))}
             </tbody>
