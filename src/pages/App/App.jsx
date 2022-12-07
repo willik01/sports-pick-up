@@ -98,6 +98,7 @@ export default function App() {
               />} />
               <Route path="/pickups/:id"
                 element={<PickupDetailPage 
+                  allPickups={allPickups}
                   // user={user} 
                   // usersGames={usersGames} 
                   // setUsersGames={setUsersGames} 
