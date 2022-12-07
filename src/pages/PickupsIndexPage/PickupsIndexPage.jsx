@@ -16,6 +16,9 @@ export default function PickupsIndexPage(
   // const [newUserPickup, setNewUserPickup] = useState([]);
   //pickups created by user
   const [usersPickups, setUsersPickups] = useState([]);
+  
+  {console.log('levels: ',skillLevelEnums , 'games', userGameEnums, 'compet', competitivenessEnums)}
+  
 
   return (
     <main>
@@ -27,17 +30,17 @@ export default function PickupsIndexPage(
             {skillLevelEnums.length && userGameEnums.length && competitivenessEnums.length 
             ? 
               <NewPickUpForm 
-                user={user} 
-                usersGames={usersGames} 
-                // newUserPickup={newUserPickup}
-                // setNewUserPickup={setNewUserPickup}
-                usersPickups={usersPickups}
-                setUsersPickups={setUsersPickups}
-                allPickups={allPickups}
-                setAllPickups={setAllPickups}
-                userGameEnums={userGameEnums}
-                skillLevelEnums={skillLevelEnums}
-                competitivenessEnums={competitivenessEnums}
+              user={user} 
+              usersGames={usersGames} 
+              // newUserPickup={newUserPickup}
+              // setNewUserPickup={setNewUserPickup}
+              usersPickups={usersPickups}
+              setUsersPickups={setUsersPickups}
+              allPickups={allPickups}
+              setAllPickups={setAllPickups}
+              userGameEnums={userGameEnums}
+              skillLevelEnums={skillLevelEnums}
+              competitivenessEnums={competitivenessEnums}
               />
             : 'Loading...'}
 
