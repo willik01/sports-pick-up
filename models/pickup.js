@@ -6,7 +6,7 @@ const pickupSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'User', 
         required: true },
-        playersRequested: {
+    playersRequested: {
             type: Number, 
             min: 1, max:3,
     },

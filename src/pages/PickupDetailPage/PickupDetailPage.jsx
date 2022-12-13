@@ -11,7 +11,7 @@ console.log(pickupId)
     <main>
           <h1>pickup detal page</h1>
               <p>Pickup ID?{pickupId.id}</p>
-              <p>Pickkup info? </p>
+              <p>Pickup info? </p>
           <table className="styled-table">
             <thead>
             <tr>
@@ -28,7 +28,7 @@ console.log(pickupId)
             </thead>
             <tbody>
               
-                {allPickups.map((pickup, key) => (
+                {allPickups.find(pickupId.id) => (
                     <tr key={key}>
                         <td>{pickup.game}</td>
                         <td>{pickup.playersRequested}</td>
