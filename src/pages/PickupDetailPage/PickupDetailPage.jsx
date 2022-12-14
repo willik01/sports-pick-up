@@ -41,7 +41,7 @@ console.log(pickupId, pickup)
                         <td>{pickup.durationRequested}</td>
 
                     </tr>          
-                
+                ))}
             </tbody>
         </table>
     </main>
