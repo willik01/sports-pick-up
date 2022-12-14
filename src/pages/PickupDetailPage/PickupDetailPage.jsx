@@ -6,8 +6,7 @@ export default function PickupsDetailPage(
   }) {
     
   const pickupId = useParams();
-  const pickup = allPickups.find(pickupId.id)
-console.log(pickupId, pickup)
+console.log(pickupId)
   return (
     <main>
           <h1>pickup detal page</h1>
@@ -28,7 +27,9 @@ console.log(pickupId, pickup)
             </tr>
             </thead>
             <tbody>
-                    <tr >
+              
+                {allPickups.find(pickupId.id) => (
+                    <tr key={key}>
                         <td>{pickup.game}</td>
                         <td>{pickup.playersRequested}</td>
                         <td>{pickup.skillLevel}</td>
@@ -39,7 +40,7 @@ console.log(pickupId, pickup)
                         <td>{pickup.durationRequested}</td>
 
                     </tr>          
-                
+                ))}
             </tbody>
         </table>
     </main>
