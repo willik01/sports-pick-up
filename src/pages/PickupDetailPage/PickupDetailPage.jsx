@@ -12,7 +12,7 @@ console.log(pickupId, pickup)
     <main>
           <h1>pickup detal page</h1>
               <p>Pickup ID?{pickupId.id}</p>
-              <p>Pickup info? </p>
+              <p>Pickkup info? </p>
           <table className="styled-table">
             <thead>
             <tr>
@@ -28,7 +28,9 @@ console.log(pickupId, pickup)
             </tr>
             </thead>
             <tbody>
-                    <tr >
+              
+                {allPickups.map((pickup, key) => (
+                    <tr key={key}>
                         <td>{pickup.game}</td>
                         <td>{pickup.playersRequested}</td>
                         <td>{pickup.skillLevel}</td>

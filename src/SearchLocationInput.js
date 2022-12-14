@@ -41,6 +41,7 @@ async function handlePlaceSelect(updateQuery) {
   // const query = addressObject.formatted_address;
   // console.log("place name",addressObject.name)
   updateQuery(query);
+  console.log(addressObject);
 }
 
 function SearchLocationInput() {
