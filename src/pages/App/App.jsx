@@ -23,33 +23,33 @@ export default function App() {
   const [allPickups, setAllPickups] = useState([]);
 
   useEffect(function() {
-  //Get user's games
-  async function getUsersGames() {
-        const tempUsersGames = await usersGameAPI.getUsersGames();
-        setUsersGames(tempUsersGames);
-        }
-    getUsersGames();
+    //Get user's games
+    async function getUsersGames() {
+          const tempUsersGames = await usersGameAPI.getUsersGames();
+          setUsersGames(tempUsersGames);
+          }
+      getUsersGames();
     
-  //Get all pickups
-  async function getAllPickups() {
-    const tempAllPickups = await pickupsAPI.getAllPickups();
-    setAllPickups(tempAllPickups);
-    }
-  getAllPickups();
+    //Get all pickups
+    async function getAllPickups() {
+      const tempAllPickups = await pickupsAPI.getAllPickups();
+      setAllPickups(tempAllPickups);
+      }
+    getAllPickups();
 
-  //Get games enums from DB  
-  async function getUserGameEnums() {
-      const tempUserGameEnums = await usersGameAPI.getUserGameEnums();
-      setUserGameEnums(tempUserGameEnums)
-      } 
-  getUserGameEnums();
+    //Get games enums from DB  
+    async function getUserGameEnums() {
+        const tempUserGameEnums = await usersGameAPI.getUserGameEnums();
+        setUserGameEnums(tempUserGameEnums)
+        } 
+    getUserGameEnums();
     
-  //Get skill level enums from DB  
-  async function getSkillLevelEnums() {
-    const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
-    setSkillLevelEnums(tempSkillLevelEnums)
-    } 
-    getSkillLevelEnums();
+    //Get skill level enums from DB  
+    async function getSkillLevelEnums() {
+      const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
+      setSkillLevelEnums(tempSkillLevelEnums)
+      } 
+      getSkillLevelEnums();
       
     // Get competitiveness enums from DB  
     async function getCompetitivenessEnums() {
@@ -119,7 +119,7 @@ export default function App() {
                 user={user} 
                 setUser={setUser}
               /> }/>
-
+          </Routes>
 
           <AllPickupsListForm 
                 user={user} 
@@ -130,12 +130,9 @@ export default function App() {
                 skillLevelEnums={skillLevelEnums} 
                 competitivenessEnums={competitivenessEnums}    
 
-              />
-            </Routes>
+              />  
             </>
-
       }
-
     </main>
   );
 }
