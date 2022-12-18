@@ -119,7 +119,7 @@ export default function App() {
                 user={user} 
                 setUser={setUser}
               /> }/>
-          </Routes>
+
 
           <AllPickupsListForm 
                 user={user} 
@@ -131,8 +131,8 @@ export default function App() {
                 competitivenessEnums={competitivenessEnums}    
 
               />
+            </Routes>
             </>
-
 
       }
 
