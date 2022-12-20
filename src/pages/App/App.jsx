@@ -23,13 +23,6 @@ export default function App() {
   const [allPickups, setAllPickups] = useState([]);
 
   useEffect(function() {
-    //Get user's games
-    async function getUsersGames() {
-          const tempUsersGames = await usersGameAPI.getUsersGames();
-          setUsersGames(tempUsersGames);
-          }
-      getUsersGames();
-    
     //Get all pickups
     async function getAllPickups() {
       const tempAllPickups = await pickupsAPI.getAllPickups();
@@ -37,26 +30,35 @@ export default function App() {
       }
     getAllPickups();
 
-    //Get games enums from DB  
-    async function getUserGameEnums() {
-        const tempUserGameEnums = await usersGameAPI.getUserGameEnums();
-        setUserGameEnums(tempUserGameEnums)
-        } 
-    getUserGameEnums();
-    
-    //Get skill level enums from DB  
-    async function getSkillLevelEnums() {
-      const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
-      setSkillLevelEnums(tempSkillLevelEnums)
-      } 
-      getSkillLevelEnums();
+    if (user) {
+      //Get user's games
+      async function getUsersGames() {
+            const tempUsersGames = await usersGameAPI.getUsersGames();
+            setUsersGames(tempUsersGames);
+            }
+        getUsersGames();
+
+      //Get games enums from DB  
+      async function getUserGameEnums() {
+          const tempUserGameEnums = await usersGameAPI.getUserGameEnums();
+          setUserGameEnums(tempUserGameEnums)
+          } 
+      getUserGameEnums();
       
-    // Get competitiveness enums from DB  
-    async function getCompetitivenessEnums() {
-      const tempCompetitivenessEnums = await usersGameAPI.getCompetitivenessEnums();
-      setCompetitivenessEnums(tempCompetitivenessEnums)
-      } 
-      getCompetitivenessEnums();
+      //Get skill level enums from DB  
+      async function getSkillLevelEnums() {
+        const tempSkillLevelEnums = await usersGameAPI.getSkillLevelEnums();
+        setSkillLevelEnums(tempSkillLevelEnums)
+        } 
+        getSkillLevelEnums();
+        
+      // Get competitiveness enums from DB  
+      async function getCompetitivenessEnums() {
+        const tempCompetitivenessEnums = await usersGameAPI.getCompetitivenessEnums();
+        setCompetitivenessEnums(tempCompetitivenessEnums)
+        } 
+        getCompetitivenessEnums();
+    }
   }, [user]); 
   
   return (
