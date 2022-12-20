@@ -65,9 +65,7 @@ export default function NewPickupForm(
     };
 
     let handleTimeChange = function (t, timeString) {
-        // console.log('timeObject:',t, 'timeString: ', timeString);
         setNewPickupFormData({...newPickupFormData, 'timeRequested':t})
-        // console.log('new form data after time change',newPickupFormData)
     };
     
     // function handleLocChange(evt) {

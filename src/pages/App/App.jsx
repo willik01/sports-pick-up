@@ -57,8 +57,7 @@ export default function App() {
       setCompetitivenessEnums(tempCompetitivenessEnums)
       } 
       getCompetitivenessEnums();
-
-  }, []); 
+  }, [user]); 
   
   return (
     <main className="App container" >
@@ -75,7 +74,6 @@ export default function App() {
                 userGameEnums={userGameEnums}
                 skillLevelEnums={skillLevelEnums} 
                 competitivenessEnums={competitivenessEnums}    
-
               />} />
               <Route path="/pickups" 
                 element={<PickupsIndexPage 
@@ -99,12 +97,6 @@ export default function App() {
               <Route path="/pickups/:id"
                 element={<PickupDetailPage 
                   allPickups={allPickups}
-                  // user={user} 
-                  // usersGames={usersGames} 
-                  // setUsersGames={setUsersGames} 
-                  // userGameEnums={userGameEnums}
-                  // skillLevelEnums={skillLevelEnums}
-                  // competitivenessEnums={competitivenessEnums}
                 />} />
             </Routes>
           </>
@@ -119,9 +111,17 @@ export default function App() {
                 user={user} 
                 setUser={setUser}
               /> }/>
+              <Route path="/pickups/:id"
+                element={<PickupDetailPage 
+                  allPickups={allPickups}
+                />} />
+              <Route path="/"
+                element={<AllPickupsListForm 
+                  allPickups={allPickups}
+                />} />
           </Routes>
 
-          <AllPickupsListForm 
+          {/* <AllPickupsListForm 
                 user={user} 
                 usersGames={usersGames} 
                 allPickups={allPickups}
@@ -129,8 +129,7 @@ export default function App() {
                 userGameEnums={userGameEnums}
                 skillLevelEnums={skillLevelEnums} 
                 competitivenessEnums={competitivenessEnums}    
-
-              />  
+              />   */}
             </>
       }
     </main>

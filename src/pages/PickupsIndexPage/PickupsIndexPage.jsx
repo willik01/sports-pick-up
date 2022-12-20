@@ -17,9 +17,6 @@ export default function PickupsIndexPage(
   //pickups created by user
   const [usersPickups, setUsersPickups] = useState([]);
   
-  {console.log('levels: ',skillLevelEnums , 'games', userGameEnums, 'compet', competitivenessEnums)}
-  
-
   return (
     <main>
           <AllPickupsListForm 

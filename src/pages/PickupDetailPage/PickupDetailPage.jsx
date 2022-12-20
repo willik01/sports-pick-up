@@ -7,7 +7,7 @@ export default function PickupsDetailPage(
     
   const pickupId = useParams();
   // const pickup = allPickups.find(pickupId.id)
-  console.log(allPickups)
+  
   return (
     <main>
           <h1>pickup detal page</h1>
