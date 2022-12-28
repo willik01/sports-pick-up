@@ -33,7 +33,7 @@ export default function NewPickupForm(
         evt.preventDefault()
         try {
             //Pull location value from field because it is not auto updated in newPickupFormData
-            const tempPickupFormData = {...newPickupFormData, user:user._id, gameLocation:document.getElementById('gameLocation').value}
+            const tempPickupFormData = {...newPickupFormData, creatorUser:user._id, gameLocation:document.getElementById('gameLocation').value}
             delete tempPickupFormData.error
             const newPickup = await pickupsAPI.updatePickup(tempPickupFormData)
             // add this new pickup to user's pickups state
