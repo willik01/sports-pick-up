@@ -7,12 +7,11 @@ export default function PickupsDetailPage(
     
   const pickupId = useParams();
   // const pickup = allPickups.find(pickupId.id)
-  
+  const pickup = allPickups.find(pu => pu._id === pickupId.id)
+  console.log ("pickup",pickup)
   return (
     <main>
           <h1>pickup detal page</h1>
-              <p>Pickup ID?{pickupId.id}</p>
-              <p>Pickkup info? </p>
           <table className="styled-table">
             <thead>
             <tr>
@@ -24,13 +23,13 @@ export default function PickupsDetailPage(
                 <th>Date</th>
                 <th>Time</th>
                 <th>Duration</th>
-                <th />
+                <th>Requestor</th>
             </tr>
             </thead>
             <tbody>
               
-                {allPickups.map((pickup, key) => (
-                    <tr key={key}>
+                {/* {allPickups.map((pickup, key) => ( */}
+                    <tr>
                         <td>{pickup.game}</td>
                         <td>{pickup.playersRequested}</td>
                         <td>{pickup.skillLevel}</td>
@@ -39,9 +38,10 @@ export default function PickupsDetailPage(
                         <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
                         <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                         <td>{pickup.durationRequested}</td>
+                        <td>{pickup.creatorUser}</td>
 
                     </tr>          
-                ))}
+                {/* ))} */}
             </tbody>
         </table>
     </main>
