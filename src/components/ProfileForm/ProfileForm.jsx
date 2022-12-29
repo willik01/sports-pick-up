@@ -43,8 +43,6 @@ export default function ProfileForm({user}) {
             const profileFormDataCopy = {...profileFormData, user:user._id}
             delete profileFormDataCopy.error        
             const profile = await profilesAPI.saveProfile(profileFormDataCopy)
-            // setProfile(profile)
-            // setProfileFormData({...profile, error: 'Profile Saved!'})
             setProfileFormData({...profileFormDataCopy, error: 'Profile Saved!'})
             setIsAlertVisible(true);
             setTimeout(() => {

@@ -1,14 +1,27 @@
 import {useParams} from "react-router-dom"
 
+import {useEffect} from 'react'
+import * as profilesAPI from '../../utilities/profiles-api';
+
 export default function PickupsDetailPage(
   {
     allPickups, 
   }) {
-    
-  const pickupId = useParams();
-  // const pickup = allPickups.find(pickupId.id)
-  const pickup = allPickups.find(pu => pu._id === pickupId.id)
-  console.log ("pickup",pickup)
+      
+      const pickupId = useParams();
+      const pickup = allPickups.find(pu => pu._id === pickupId.id)
+
+      let thisCreatorUser = null;
+      useEffect(function() {
+          async function getProfile() {
+            thisCreatorUser = await profilesAPI.getProfile();
+              // setProfileFormData(tempUserProfile);
+              console.log('user',thisCreatorUser, pickup.creatorUser)  
+          }
+          getProfile();
+
+      }, [])
+      
   return (
     <main>
           <h1>pickup detal page</h1>
@@ -27,8 +40,6 @@ export default function PickupsDetailPage(
             </tr>
             </thead>
             <tbody>
-              
-                {/* {allPickups.map((pickup, key) => ( */}
                     <tr>
                         <td>{pickup.game}</td>
                         <td>{pickup.playersRequested}</td>
@@ -39,9 +50,7 @@ export default function PickupsDetailPage(
                         <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                         <td>{pickup.durationRequested}</td>
                         <td>{pickup.creatorUser}</td>
-
                     </tr>          
-                {/* ))} */}
             </tbody>
         </table>
     </main>
