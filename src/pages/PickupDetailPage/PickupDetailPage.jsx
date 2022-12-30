@@ -13,12 +13,11 @@ export default function PickupsDetailPage(
 
       let thisCreatorUser = null;
       useEffect(function() {
-          async function getProfile() {
-            thisCreatorUser = await profilesAPI.getProfile();
-              // setProfileFormData(tempUserProfile);
-              console.log('user',thisCreatorUser, pickup.creatorUser)  
+          async function getPUOwnerProfile() {
+            thisCreatorUser = await profilesAPI.getPUOwnerProfile(pickup.creatorUser);
+            console.log('user',thisCreatorUser, pickup.creatorUser)  
           }
-          getProfile();
+          getPUOwnerProfile();
 
       }, [])
       
@@ -50,6 +49,7 @@ export default function PickupsDetailPage(
                         <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                         <td>{pickup.durationRequested}</td>
                         <td>{pickup.creatorUser}</td>
+                        {/* <td>{thisCreatorUser.location}</td> */}
                     </tr>          
             </tbody>
         </table>

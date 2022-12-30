@@ -8,14 +8,7 @@ export default function ProfileForm({user}) {
         country: '',
         error: '',
     })
-
-    // const [profile, setProfile] = useState({ //CHECK - is this really needed
-    //     location: '',
-    //     language: '',
-    //     country: '',
-    //     error: '',
-    // })
-
+    
     const [ isAlertVisible, setIsAlertVisible ] = useState(false);
 
     useEffect(function() {
