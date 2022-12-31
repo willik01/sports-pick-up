@@ -1,7 +1,8 @@
 import {useParams} from "react-router-dom"
 
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import * as profilesAPI from '../../utilities/profiles-api';
+
 
 export default function PickupsDetailPage(
   {
@@ -9,15 +10,19 @@ export default function PickupsDetailPage(
   }) {
       
       const pickupId = useParams();
-      const pickup = allPickups.find(pu => pu._id === pickupId.id)
-
-      let thisCreatorUser = null;
+      const pickup = allPickups.find(pu => pu._id === pickupId.id);
+      const [thisCreatorUser, setThisCreatorUser] = useState([]);
+      const [thisCreatorName, setThisCreatorName] = useState([]);
+      
       useEffect(function() {
           async function getPUOwnerProfile() {
-            thisCreatorUser = await profilesAPI.getPUOwnerProfile(pickup.creatorUser);
-            console.log('user',thisCreatorUser, pickup.creatorUser)  
+            setThisCreatorUser(await profilesAPI.getPUOwnerProfile(pickup.creatorUser));
           }
           getPUOwnerProfile();
+
+          async function getPUOwnerName() {
+            setThisCreatorName(await profilesAPI.getPUOwnerUser(pickup.creatorUser));
+          }
 
       }, [])
       
@@ -49,7 +54,10 @@ export default function PickupsDetailPage(
                         <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                         <td>{pickup.durationRequested}</td>
                         <td>{pickup.creatorUser}</td>
-                        {/* <td>{thisCreatorUser.location}</td> */}
+                        <td>{thisCreatorUser.location}</td>
+                        <td>{thisCreatorUser.gender}</td>
+                        <td>{thisCreatorUser.language}</td>
+                        <td>{thisCreatorUser.country}</td>
                     </tr>          
             </tbody>
         </table>
