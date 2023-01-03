@@ -12,3 +12,7 @@ export async function login(userData) {
 export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 }
+
+export function getPUOwner() {
+    return sendRequest(`${BASE_URL}/get-name`)
+}

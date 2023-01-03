@@ -2,6 +2,7 @@ import {useParams} from "react-router-dom"
 
 import {useEffect, useState} from 'react'
 import * as profilesAPI from '../../utilities/profiles-api';
+import * as usersAPI from '../../utilities/users-api';
 
 
 export default function PickupsDetailPage(
@@ -12,7 +13,7 @@ export default function PickupsDetailPage(
       const pickupId = useParams();
       const pickup = allPickups.find(pu => pu._id === pickupId.id);
       const [thisCreatorUser, setThisCreatorUser] = useState([]);
-      const [thisCreatorName, setThisCreatorName] = useState([]);
+      const [PUOwner, setPUOwner] = useState([]);
       
       useEffect(function() {
           async function getPUOwnerProfile() {
@@ -20,9 +21,10 @@ export default function PickupsDetailPage(
           }
           getPUOwnerProfile();
 
-          async function getPUOwnerName() {
-            setThisCreatorName(await profilesAPI.getPUOwnerUser(pickup.creatorUser));
+          async function getPUOwner() {
+            setPUOwner(await usersAPI.getPUOwner(pickup.creatorUser));
           }
+          getPUOwner();
 
       }, [])
       
