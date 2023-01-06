@@ -13,6 +13,7 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 }
 
-export function getPUOwner() {
-    return sendRequest(`${BASE_URL}/get-name`)
+export function getPUOwnerName(pUOwner) {
+    // return sendRequest(`${BASE_URL}/get-name`, 'POST', pUOwner)
+    return sendRequest(`${BASE_URL}/${pUOwner}`); 
 }

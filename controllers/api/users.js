@@ -6,6 +6,7 @@ module.exports = {
     create,
     login,
     checkToken,
+    getNamePUOwner, 
 }
 
 async function create(req, res) {
@@ -33,10 +34,16 @@ async function login(req, res) {
 }
 
 function checkToken(req, res) {
-    console.log('req.user', req.user)
     res.json(req.exp)
 }
 
+function getNamePUOwner(req, res) {
+    console.log('reqin users.js controllers', req)
+    // const profile = await Profile.findOne({user: req.params.id});
+    // console.log('profile from controller? ', profile, req.params.id)
+    // res.json(profile);
+
+}
 
 /*-- Helper Functions --*/
 function createJWT(user) {

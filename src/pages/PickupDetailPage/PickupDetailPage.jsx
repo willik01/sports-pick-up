@@ -21,10 +21,10 @@ export default function PickupsDetailPage(
           }
           getPUOwnerProfile();
 
-          async function getPUOwner() {
-            setPUOwner(await usersAPI.getPUOwner(pickup.creatorUser));
+          async function getPUOwnerName() {
+            setPUOwner(await usersAPI.getPUOwnerName(pickup.creatorUser));
           }
-          getPUOwner();
+          getPUOwnerName();
 
       }, [])
       
