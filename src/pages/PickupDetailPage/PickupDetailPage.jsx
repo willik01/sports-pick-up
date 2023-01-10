@@ -33,46 +33,44 @@ export default function PickupsDetailPage(
           <table className="styled-table">
             <thead>
             <tr>
+                {/* <td>{thisCreatorUser.gender}</td> */}
                 <th>Sport</th>
+                <td>{pickup.game}</td>
+            </tr><tr>
                 <th>Players Needed</th>
+                <td>{pickup.playersRequested}</td>
+            </tr><tr>
                 <th>Skill Level</th>
+                <td>{pickup.skillLevel}</td>
             </tr><tr>
                 <th>Location</th>
+                <td>{pickup.gameLocation}</td>
+            </tr><tr>
                 <th>Competitiveness</th>
+                <td>{pickup.competitiveness}</td>
+            </tr><tr>
                 <th>Date</th>
+                <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
             </tr><tr>
                 <th>Time</th>
+                <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
+            </tr><tr>
                 <th>Duration</th>
+                <td>{pickup.durationRequested}</td>                  
+            </tr><tr>
                 <th>Req Loc</th>
+                <td>{thisCreatorUser.location}</td>                
             </tr><tr>
                 <th>Req Lang</th>
+                <td>{thisCreatorUser.language}</td>
+            </tr><tr>
                 <th>Req Country</th>
+                <td>{thisCreatorUser.country}</td>
+            </tr><tr>
                 <th>Req Name</th>
+                <td>{PUOwner.name}</td>
             </tr>
             </thead>
-            <tbody>
-                    <tr>
-                        <td>{pickup.game}</td>
-                        <td>{pickup.gameLocation}</td>
-                        <td>{pickup.skillLevel}</td>
-                        {/* <td>{thisCreatorUser.gender}</td> */}
-                    </tr>
-                    <tr>                        
-                        <td>{pickup.playersRequested}</td>
-                        <td>{pickup.competitiveness}</td>
-                        <td>{pickup.durationRequested}</td>                  
-                    </tr>          
-                    <tr>
-                        <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
-                        <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
-                        <td>{thisCreatorUser.location}</td>                
-                    </tr>    
-                    <tr>
-                        <td>{thisCreatorUser.language}</td>
-                        <td>{thisCreatorUser.country}</td>
-                        <td>{PUOwner.name}</td>
-                    </tr>          
-            </tbody>
         </table>
     </main>
     )
