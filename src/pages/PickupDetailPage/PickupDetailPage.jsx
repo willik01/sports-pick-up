@@ -36,12 +36,15 @@ export default function PickupsDetailPage(
                 <th>Sport</th>
                 <th>Players Needed</th>
                 <th>Skill Level</th>
+            </tr><tr>
                 <th>Location</th>
                 <th>Competitiveness</th>
                 <th>Date</th>
+            </tr><tr>
                 <th>Time</th>
                 <th>Duration</th>
                 <th>Req Loc</th>
+            </tr><tr>
                 <th>Req Lang</th>
                 <th>Req Country</th>
                 <th>Req Name</th>
@@ -50,15 +53,21 @@ export default function PickupsDetailPage(
             <tbody>
                     <tr>
                         <td>{pickup.game}</td>
-                        <td>{pickup.playersRequested}</td>
+                        <td>{pickup.gameLocation}</td>
                         <td>{pickup.skillLevel}</td>
-                        <td>{pickup.gameLocation}</td>  
+                        {/* <td>{thisCreatorUser.gender}</td> */}
+                    </tr>
+                    <tr>                        
+                        <td>{pickup.playersRequested}</td>
                         <td>{pickup.competitiveness}</td>
+                        <td>{pickup.durationRequested}</td>                  
+                    </tr>          
+                    <tr>
                         <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
                         <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
-                        <td>{pickup.durationRequested}</td>
-                        <td>{thisCreatorUser.location}</td>
-                        {/* <td>{thisCreatorUser.gender}</td> */}
+                        <td>{thisCreatorUser.location}</td>                
+                    </tr>    
+                    <tr>
                         <td>{thisCreatorUser.language}</td>
                         <td>{thisCreatorUser.country}</td>
                         <td>{PUOwner.name}</td>
