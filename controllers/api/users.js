@@ -38,7 +38,7 @@ function checkToken(req, res) {
 };
 
 async function getPUOwnerName(req, res) {
-    const userName = await User.findOne({user: req.params.id}, "name");
+    const userName = await User.findById(req.params.id, "name").exec();
     console.log('UserName from controller? ',userName, req.params.id)
     res.json(userName);
 };
