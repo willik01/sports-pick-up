@@ -25,7 +25,6 @@ export default function PickupsDetailPage(
             setPUOwner(await usersAPI.getPUOwnerName(pickup.creatorUser));
           }
           getPUOwnerName();
-
       }, [])
       
   return (
@@ -42,10 +41,10 @@ export default function PickupsDetailPage(
                 <th>Date</th>
                 <th>Time</th>
                 <th>Duration</th>
-                <th>Requestor</th>
                 <th>Req Loc</th>
                 <th>Req Lang</th>
-                <th>Req country</th>
+                <th>Req Country</th>
+                <th>Req Name</th>
             </tr>
             </thead>
             <tbody>
@@ -58,11 +57,11 @@ export default function PickupsDetailPage(
                         <td>{new Date(pickup.dateRequested).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"}) }</td>
                         <td>{new Date(pickup.timeRequested).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                         <td>{pickup.durationRequested}</td>
-                        <td>{pickup.creatorUser}</td>
                         <td>{thisCreatorUser.location}</td>
                         {/* <td>{thisCreatorUser.gender}</td> */}
                         <td>{thisCreatorUser.language}</td>
                         <td>{thisCreatorUser.country}</td>
+                        <td>{PUOwner.name}</td>
                     </tr>          
             </tbody>
         </table>

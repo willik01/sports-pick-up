@@ -6,8 +6,8 @@ module.exports = {
     create,
     login,
     checkToken,
-    getNamePUOwner, 
-}
+    getPUOwnerName, 
+};
 
 async function create(req, res) {
     try {
@@ -17,7 +17,7 @@ async function create(req, res) {
     } catch(err) {
         res.status(400).json(err)
     }
-}
+};
 
 async function login(req, res) {
     try {
@@ -31,18 +31,17 @@ async function login(req, res) {
         console.log(err)
         res.status(400).json(err)
     }
-}
+};
 
 function checkToken(req, res) {
     res.json(req.exp)
-}
+};
 
-async function getNamePUOwner(req, res) {
-    console.log('reqin users.js controllers', req)
-    const userName = await User.findOne({user: req.params.id});
-    console.log('UserName from controller? ', userName, req.params.id)
+async function getPUOwnerName(req, res) {
+    const userName = await User.findOne({user: req.params.id}, "name");
+    console.log('UserName from controller? ',userName, req.params.id)
     res.json(userName);
-}
+};
 
 /*-- Helper Functions --*/
 function createJWT(user) {
@@ -51,4 +50,4 @@ function createJWT(user) {
         process.env.SECRET,
         { expiresIn: '24h' }
     )
-}
+};

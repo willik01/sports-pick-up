@@ -18,6 +18,5 @@ async function saveProfile(req, res) {
 
 async function getPUOwnerProfile(req, res) {
         const profile = await Profile.findOne({user: req.params.id});
-        // console.log('profile from controller? ', profile, req.params.id)
         res.json(profile);         
 }

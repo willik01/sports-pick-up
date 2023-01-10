@@ -14,6 +14,5 @@ export function checkToken() {
 }
 
 export function getPUOwnerName(pUOwner) {
-    console.log('here in users-api trying to send an url')
     return sendRequest(`${BASE_URL}/${pUOwner}`); 
 }

@@ -17,13 +17,12 @@ app.use(express.static(path.join(__dirname, 'build')))
 app.use(require('./config/checkToken'))
 
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/pickups', require('./routes/api/pickups'))
+
 //Protect API Routes
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/profiles', ensureLoggedIn, require('./routes/api/profiles'))
 app.use('/api/usersGame', ensureLoggedIn, require('./routes/api/usersGame'))
-//********need a separate line for user specific 
-app.use('/api/pickups', require('./routes/api/pickups'))
-//********need a separate line for user specific 
 
 // "catch-all" route that will match all GET requests that don't match an API route defined above
 app.get('/*', function(req, res) {
