@@ -37,12 +37,11 @@ function checkToken(req, res) {
     res.json(req.exp)
 }
 
-function getNamePUOwner(req, res) {
+async function getNamePUOwner(req, res) {
     console.log('reqin users.js controllers', req)
-    // const profile = await Profile.findOne({user: req.params.id});
-    // console.log('profile from controller? ', profile, req.params.id)
-    // res.json(profile);
-
+    const userName = await User.findOne({user: req.params.id});
+    console.log('UserName from controller? ', userName, req.params.id)
+    res.json(userName);
 }
 
 /*-- Helper Functions --*/

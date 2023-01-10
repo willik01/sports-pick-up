@@ -16,6 +16,5 @@ export function saveProfile(profile) {
 }
 
 export function getPUOwnerProfile(id) {
-  console.log('how about here in profiles-api?')
   return sendRequest(`${BASE_URL}/${id}`);  
 }

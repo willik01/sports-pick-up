@@ -13,7 +13,7 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
 }
 
-// export function getPUOwnerName(pUOwner) {
-//     // return sendRequest(`${BASE_URL}/get-name`, 'POST', pUOwner)
-//     return sendRequest(`${BASE_URL}/${pUOwner}`); 
-// }
+export function getPUOwnerName(pUOwner) {
+    console.log('here in users-api trying to send an url')
+    return sendRequest(`${BASE_URL}/${pUOwner}`); 
+}
