@@ -43,6 +43,9 @@ export default function PickupsDetailPage(
                 <th>Time</th>
                 <th>Duration</th>
                 <th>Requestor</th>
+                <th>Req Loc</th>
+                <th>Req Lang</th>
+                <th>Req country</th>
             </tr>
             </thead>
             <tbody>
@@ -57,7 +60,7 @@ export default function PickupsDetailPage(
                         <td>{pickup.durationRequested}</td>
                         <td>{pickup.creatorUser}</td>
                         <td>{thisCreatorUser.location}</td>
-                        <td>{thisCreatorUser.gender}</td>
+                        {/* <td>{thisCreatorUser.gender}</td> */}
                         <td>{thisCreatorUser.language}</td>
                         <td>{thisCreatorUser.country}</td>
                     </tr>          
