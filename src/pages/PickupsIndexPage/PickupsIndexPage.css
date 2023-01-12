@@ -5,7 +5,7 @@ pickup sports CSS below
     font-family: Helvetica;
     color: black;  
   }
-  
+
   body {
     margin: 0;
     height: 100vh;
@@ -59,14 +59,6 @@ pickup sports CSS below
     cursor: default;
   }
   
-  table {
-    font-size: 20px;
-  }
-  
-  table thead th {
-    padding: 5px;
-    border-bottom: 2px solid #424748;
-  }
   
   #list a:hover {
     background-color: white;
@@ -87,7 +79,7 @@ pickup sports CSS below
     padding: 0;
     list-style: none;
   }
-      
+  
   li {
     font-weight: bold;
   }
@@ -113,6 +105,14 @@ pickup sports CSS below
     font-size: 2em;
   }
   
+  table {
+    font-size: 20px;
+  }
+  
+  table thead th {
+    padding: 5px;
+    border-bottom: 2px solid #424748;
+  }
   .styled-table {
     border-collapse: collapse;
     margin: 10px 0;
@@ -120,9 +120,11 @@ pickup sports CSS below
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: auto;
   }
   
-  .styled-table thead tr, 
+  /* .styled-table thead tr,  */
+  .styled-table th, 
   #gamehead {
     background-color: #3c638e;
     color: #ffffff;
@@ -135,16 +137,19 @@ pickup sports CSS below
       padding: 12px 8px;
   }
   
-  .styled-table tbody tr {
+  .styled-table tr {
     border: thick solid white;
-    text-align: left;
+    text-align: center;
     background-color: #d7ddff;
   }
   
   .styled-table tbody tr:nth-of-type(even) {
     background-color: #bdcffc;
   }
-  
+  /* Need to override rounded corners from an include */
+  .no-rounded-corners {
+    border-radius: 0;
+  }
   table input[type="submit"] {
     display: block;
     margin: 0 auto;

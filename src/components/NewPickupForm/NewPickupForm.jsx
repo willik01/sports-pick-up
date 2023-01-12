@@ -125,10 +125,10 @@ return(
                 {/* <SearchLocationInput onChange={() => null} /> */}
                 {/* <div className="styled-div-rows" ><input required type="text" id="autocomplete" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div> */}
                 <div className="styled-div-head" >Time</div>
-                <TimePicker required minuteStep={15} use12Hours format='HH:mm a' className='styled-div-rows' id="dateTimeRequested" name="dateTimeRequested"  onChange={handleTimeChange} />
+                <TimePicker required minuteStep={15} use12Hours format='HH:mm a' className='styled-div-rows no-rounded-corners' id="dateTimeRequested" name="dateTimeRequested"  onChange={handleTimeChange}  />
                 {/* <div className="styled-div-rows" ><input type="text" id="dateTimeRequested" name="dateTimeRequested" value={newPickupFormData.dateTimeRequested} onChange={handlePickup} /></div> */}
                 <div className="styled-div-head" >Date</div>
-                <DatePicker required className="styled-div-rows" format='MMM-DD-YYYY' onChange={handleCalChange}/>
+                <DatePicker required className="styled-div-rows no-rounded-corners" format='MMM-DD-YYYY' onChange={handleCalChange}/>
                 {/* <DatePicker format='MMM-DD-YYYY' id="dateRequested" name="dateRequested" value={newPickupFormData.dateRequested} onChange={handlePickup} /> */}
                 <div className="styled-div-head" >Duration</div>
                 <div className="styled-div-rows" ><input required type="number" id="durationRequested" name="durationRequested" value={newPickupFormData.durationRequested} onChange={handlePickup} /></div>

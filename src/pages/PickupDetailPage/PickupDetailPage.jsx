@@ -31,7 +31,7 @@ export default function PickupsDetailPage(
     <main>
           <h1>pickup detal page</h1>
           <table className="styled-table">
-            <thead>
+            {/* <thead> */}
             <tr>
                 {/* <td>{thisCreatorUser.gender}</td> */}
                 <th>Sport</th>
@@ -70,7 +70,7 @@ export default function PickupsDetailPage(
                 <th>Req Name</th>
                 <td>{PUOwner.name}</td>
             </tr>
-            </thead>
+            {/* </thead> */}
         </table>
     </main>
     )
