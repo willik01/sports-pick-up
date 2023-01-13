@@ -26,11 +26,6 @@
   border: thick solid white;
 }
 
-.styled-div-rows {
-  border: thick solid white;
-  text-align: left;
-  background-color: #edeffc;
-}
 .element-border {
   border: solid white;
   width: 400px;

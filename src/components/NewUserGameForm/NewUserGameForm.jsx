@@ -81,9 +81,11 @@ export default function NewUserGameForm(
                             ))}
                         </select></div>
                     <div className="styled-div-head" >Years Experience</div>
-                    <div className="styled-div-rows" ><input type="number" id="yearsExperience" name="yearsExperience" value={newGameFormData.yearsExperience} onChange={handleChangeGame} /></div>
+                    {/* <div className="styled-div-rows" ><input type="number" id="yearsExperience" name="yearsExperience" value={newGameFormData.yearsExperience} onChange={handleChangeGame} /></div> */}
+                    <input className='styled-div-rows' type="number" name="yearsExperience" value={newGameFormData.yearsExperience} onChange={handleChangeGame} />
                     <div className="styled-div-head" >Home Location</div>
-                    <div className="styled-div-rows" ><input type="text" id="gameLocation" name="gameLocation" value={newGameFormData.gameLocation} onChange={handleChangeGame} /></div>
+                    {/* <div className="styled-div-rows" ><input type="text" id="gameLocation" name="gameLocation" value={newGameFormData.gameLocation} onChange={handleChangeGame} /></div> */}
+                    <input className='styled-div-rows' type="text" name="gameLocation" value={newGameFormData.gameLocation} onChange={handleChangeGame} />
                     <div className='styled-div-head' >Competitiveness</div>
                     <div className="styled-div-rows" >
                         <select 

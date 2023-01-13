@@ -140,8 +140,8 @@ pickup sports CSS below
   .styled-table tr,
   .styled-div-rows {
     border: thick solid white;
-    text-align: center;
-    background-color: #d7ddff;
+    text-align: left;
+    background-color: #d7ddff; 
   }
   
   .styled-table tbody tr:nth-of-type(even)

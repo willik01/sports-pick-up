@@ -100,25 +100,19 @@ form {
   color: var(--text-light);
 }
 
+select {
+  width: 100%;
+}
+
 label {
   font-size: 2vmin;
   display: flex;
   align-items: center;
 }
 
-input {
-  padding: 1vmin;
-  font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
-  color: var(--text-dark);
-  background-image: none !important; 
-  outline: none;
-}
-
-input:focus {
+/* input:focus {
   border-color: var(--tennisBallGreen);
-}
+} */
 
 button, a.button {
   margin: 1vmin;

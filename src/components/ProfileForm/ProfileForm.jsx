@@ -54,14 +54,13 @@ export default function ProfileForm({user}) {
         <div className='element-border'>
             <div className='styled-div'>
               <form autoComplete='off' onSubmit={handleSubmitProfile}>
-                <div className='styled-div-head form-label'>User Name</div>
-                
+                <div className='styled-div-head'>User Name</div> 
                 <input className='styled-div-rows' type="text" name="userName" value={user.name} disabled readOnly />
-                <div className='styled-div-head form-label'>Language</div>
+                <div className='styled-div-head'>Language</div>
                 <input className='styled-div-rows' type="text" name="language" value={profileFormData.language} onChange={handleChange} />
-                <div className='styled-div-head form-label'>Location </div>
+                <div className='styled-div-head'>Location </div>
                 <input className='styled-div-rows' type="text" name="location" value={profileFormData.location} onChange={handleChange} />
-                <div className='styled-div-head form-label'>Country</div>
+                <div className='styled-div-head'>Country</div>
                 <input className='styled-div-rows' type="text" name="country" value={profileFormData.country} onChange={handleChange} />                
                 <button className='btn-primary'  type="submit" >Update Profile</button>
               </form>
