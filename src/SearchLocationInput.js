@@ -56,7 +56,6 @@ function SearchLocationInput() {
   }, []);
 
   return (
-    <div className="search-location-input styled-div-rows">
       <input
         ref={autoCompleteRef}
         onChange={event => setQuery(event.target.value)}
@@ -64,8 +63,8 @@ function SearchLocationInput() {
         value={query}
         name="gameLocation"
         id="gameLocation"
+        className="search-location-input styled-div-rows"
       />
-    </div>
   );
 }
 

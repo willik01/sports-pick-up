@@ -83,47 +83,44 @@ return(
         <div className="styled-div"> 
             <form autoComplete="off" onSubmit={handleSubmitPickup}>  
                 <div className='styled-div-head' >Sport</div>
-                <div className="styled-div-rows" >
-                    <select 
-                        value={newPickupFormData.game}
-                        onChange={handlePickup}
-                        name="game" 
-                        id="game">
-                        {userGameEnums.map((g) => (
-                            <option value={g} key={g}>{g}</option>
-                        ))}
-                    </select></div>
+                <select 
+                    value={newPickupFormData.game}
+                    onChange={handlePickup}
+                    name="game" 
+                    className="styled-div-rows"
+                    id="game">
+                    {userGameEnums.map((g) => (
+                        <option value={g} key={g}>{g}</option>
+                    ))}
+                </select>
                 <div className="styled-div-head" >Players Requested</div>
-                <div className="styled-div-rows" ><input required type="number" id="playersRequested" name="playersRequested" value={newPickupFormData.playersRequested} onChange={handlePickup} /></div>
+                <input required className="styled-div-rows" type="number" id="playersRequested" name="playersRequested" value={newPickupFormData.playersRequested} onChange={handlePickup} />
                 <div className="styled-div-head" >Skill Level</div>
-                <div className="styled-div-rows" >
-                    <select 
-                        required 
-                        value={newPickupFormData.skillLevel}
-                        onChange={handlePickup}
-                        name="skillLevel" 
-                        id="skillLevel">
-                        {skillLevelEnums.map((sl) => (
-                        <option value={sl} key={sl}>{sl}</option>
-                        ))}
-                    </select></div>
+                <select 
+                    required 
+                    value={newPickupFormData.skillLevel}
+                    onChange={handlePickup}
+                    name="skillLevel" 
+                    className="styled-div-rows"
+                    id="skillLevel">
+                    {skillLevelEnums.map((sl) => (
+                    <option value={sl} key={sl}>{sl}</option>
+                    ))}
+                </select>
                 <div className='styled-div-head' >Competitiveness</div>
-                <div className="styled-div-rows" >
-                    <select 
-                        required
-                        value={newPickupFormData.competitiveness}
-                        onChange={handlePickup}
-                        name="competitiveness" 
-                        id="competitiveness">
-                        {competitivenessEnums.map((c) => (
-                            <option value={c} key={c}>{c}</option>
-                        ))}
-                    </select></div>
+                <select 
+                    required
+                    value={newPickupFormData.competitiveness}
+                    onChange={handlePickup}
+                    name="competitiveness" 
+                    id="competitiveness"
+                    className="styled-div-rows">
+                    {competitivenessEnums.map((c) => (
+                        <option value={c} key={c}>{c}</option>
+                    ))}
+                </select>
                 <div className="styled-div-head" >Desired Play Location</div>
                 <SearchLocationInput />
-                {/* <SearchLocationInput onChange={handleLocChange} /> */}
-                {/* <SearchLocationInput onChange={() => null} /> */}
-                {/* <div className="styled-div-rows" ><input required type="text" id="autocomplete" name="gameLocation" value={newPickupFormData.gameLocation} onChange={handlePickup} /></div> */}
                 <div className="styled-div-head" >Time</div>
                 <TimePicker required minuteStep={15} use12Hours format='HH:mm a' className='styled-div-rows no-rounded-corners' id="dateTimeRequested" name="dateTimeRequested"  onChange={handleTimeChange}  />
                 {/* <div className="styled-div-rows" ><input type="text" id="dateTimeRequested" name="dateTimeRequested" value={newPickupFormData.dateTimeRequested} onChange={handlePickup} /></div> */}
@@ -131,9 +128,9 @@ return(
                 <DatePicker required className="styled-div-rows no-rounded-corners" format='MMM-DD-YYYY' onChange={handleCalChange}/>
                 {/* <DatePicker format='MMM-DD-YYYY' id="dateRequested" name="dateRequested" value={newPickupFormData.dateRequested} onChange={handlePickup} /> */}
                 <div className="styled-div-head" >Duration</div>
-                <div className="styled-div-rows" ><input required type="number" id="durationRequested" name="durationRequested" value={newPickupFormData.durationRequested} onChange={handlePickup} /></div>
+                <input required type="number" id="durationRequested" name="durationRequested" className="styled-div-rows" value={newPickupFormData.durationRequested} onChange={handlePickup} />
                 <div className="styled-div-head" >Gender Requested</div>
-                <div className="styled-div-rows" ><input required type="text" id="genderToPlayRequested" name="genderToPlayRequested" value={newPickupFormData.genderToPlayRequested} onChange={handlePickup} /></div>
+                <input required type="text" id="genderToPlayRequested" name="genderToPlayRequested" className="styled-div-rows" value={newPickupFormData.genderToPlayRequested} onChange={handlePickup} />
                 <button type="submit">Add New Pickup Request</button>
             </form>
         </div> 

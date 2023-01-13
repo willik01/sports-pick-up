@@ -23,7 +23,7 @@
   background-color: var(--usOpenCourtBlue);
   color: var(--white);
   text-align: left;
-  border: thick solid white;
+  border: medium solid white;
 }
 
 .element-border {
