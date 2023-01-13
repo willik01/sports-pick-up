@@ -137,15 +137,24 @@ pickup sports CSS below
       padding: 12px 8px;
   }
   
-  .styled-table tr {
+  .styled-table tr,
+  .styled-div-rows {
     border: thick solid white;
     text-align: center;
     background-color: #d7ddff;
   }
   
-  .styled-table tbody tr:nth-of-type(even) {
+  .styled-table tbody tr:nth-of-type(even)
+  {
     background-color: #bdcffc;
   }
+
+  form .styled-div-rows:nth-of-type(4n-2) 
+  {
+    background-color: #bdcffc;
+  }
+
+
   /* Need to override rounded corners from an include */
   .no-rounded-corners {
     border-radius: 0;
