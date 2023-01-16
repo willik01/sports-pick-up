@@ -70,6 +70,10 @@ export default function PickupsDetailPage(
                 <th>Req Name</th>
                 <td>{PUOwner.name}</td>
             </tr>
+            <tr>
+                <th>Accept Pick-UP?</th>
+                <button type="submit">Accept this Pickp-Up</button>
+            </tr>
             {/* </thead> */}
         </table>
     </main>
