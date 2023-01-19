@@ -11,10 +11,10 @@ const pickupSchema = new Schema({
             type: Number, 
             min: 1, max:3,
     },
-    playersAccepted: {
+    playersAccepted: [{
         type: Schema.Types.ObjectId, 
-        ref: 'User'  
-    },
+        ref: 'User', 
+    }],
     game: {
         type: String, 
         enum: ['Tennis', 'Pickleball', 'Badminton'], 

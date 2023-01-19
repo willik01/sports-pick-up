@@ -5,8 +5,8 @@ module.exports = {
     getAllPickups, 
     // getUsersPickups,
     updatePickup,
+    addplayersAccepted, 
     // deletePickup,
-    // getCompetitivenessEnums,
 };
 
 async function getAllPickups(req, res) {
@@ -24,13 +24,14 @@ async function updatePickup(req, res) {
     res.json(pickup);
 }
 
+async function addplayersAccepted(req, res) {
+    const acceptPickup = await Pickup.findOneAndUpdate({_id:req.body._id }, req.body);
+    res.json(acceptPickup);
+}
+
 // async function deletePickup(req, res) {
 //     const deletedUserGame = await userGame.findOneAndRemove({_id:req.body._id})
 //     res.json(deletedUserGame);
 // }
-
-// async function getCompetitivenessEnums(req, res) {
-//     const userGameEnums = await userGame.schema.path('game').enumValues;
-//     res.json(userGameEnums);
 
 // }
