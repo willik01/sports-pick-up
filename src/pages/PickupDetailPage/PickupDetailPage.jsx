@@ -1,5 +1,4 @@
 import {useParams} from "react-router-dom"
-
 import {useEffect, useState} from 'react' 
 import * as profilesAPI from '../../utilities/profiles-api';
 import * as usersAPI from '../../utilities/users-api';
@@ -14,8 +13,7 @@ export default function PickupsDetailPage(
       const pickup = allPickups.find(pu => pu._id === pickupId.id);
       const [thisCreatorUser, setThisCreatorUser] = useState([]);
       const [PUOwner, setPUOwner] = useState([]);
-      const [user, setUser] = useState(getUser())
-      const isCreator = (user = pickup.creatorUser)
+      const user = getUser();
 
       useEffect(function() {
           async function getPUOwnerProfile() {
@@ -33,7 +31,6 @@ export default function PickupsDetailPage(
     <main>
           <h1>pickup detal page</h1>
           <table className="styled-table">
-            {/* <thead> */}
             <tr>
                 {/* <td>{thisCreatorUser.gender}</td> */}
                 <th>Sport</th>
@@ -72,13 +69,12 @@ export default function PickupsDetailPage(
                 <th>Req Name</th>
                 <td>{PUOwner.name}</td>
             </tr>
-            {  isCreator &&
+            {  !(user._id === pickup.creatorUser) &&
                 <tr>
                     <th>Accept Pick-UP?</th>
                     <button type="submit">Accept this Pickp-Up</button>
                 </tr>
             }
-            {/* </thead> */}
         </table>
     </main>
     )

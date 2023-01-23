@@ -104,24 +104,25 @@ export default function App() {
           </>
           :
           <>
-        <nav>
-            <Link to="/signinup" state={{ from: "app" }}> <b> Sign-In, Sign-Up</b></Link>
-        </nav>
-          <Routes>
-              <Route path="/signinup" 
-                element={<AuthPage 
-                user={user} 
-                setUser={setUser}
-              /> }/>
-              <Route path="/pickups/:id"
-                element={<PickupDetailPage 
-                  allPickups={allPickups}
-                />} />
-              <Route path="/"
-                element={<AllPickupsListForm 
-                  allPickups={allPickups}
-                />} />
-          </Routes>
+            <nav>
+                <Link to="/signinup" state={{ from: "app" }}> <b> Sign-In, Sign-Up</b></Link>
+            </nav>
+            <Routes>
+                <Route path="/signinup" 
+                  element={<AuthPage 
+                  user={user} 
+                  setUser={setUser}
+                /> }/>
+                <Route path="/pickups/:id"
+                  element={<PickupDetailPage 
+                    allPickups={allPickups}
+                  />} />
+                <Route path="/"
+                  element={<AllPickupsListForm 
+                    allPickups={allPickups}
+                    user={user}
+                  />} />
+            </Routes>
 
           {/* <AllPickupsListForm 
                 user={user} 
