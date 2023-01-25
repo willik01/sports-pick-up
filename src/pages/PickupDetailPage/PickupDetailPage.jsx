@@ -9,27 +9,39 @@ export default function PickupsDetailPage(
     allPickups, 
   }) {
       
-      const pickupId = useParams();
-      const pickup = allPickups.find(pu => pu._id === pickupId.id);
-      const [thisCreatorUser, setThisCreatorUser] = useState([]);
-      const [PUOwner, setPUOwner] = useState([]);
-      const user = getUser();
+    const pickupId = useParams();
+    const pickup = allPickups.find(pu => pu._id === pickupId.id);
+    const [thisCreatorUser, setThisCreatorUser] = useState([]);
+    const [PUOwner, setPUOwner] = useState([]);
+    const user = getUser();
 
-      useEffect(function() {
-          async function getPUOwnerProfile() {
-            setThisCreatorUser(await profilesAPI.getPUOwnerProfile(pickup.creatorUser));
-          }
-          getPUOwnerProfile();
+    useEffect(function() {
+        async function getPUOwnerProfile() {
+        setThisCreatorUser(await profilesAPI.getPUOwnerProfile(pickup.creatorUser));
+        }
+        getPUOwnerProfile();
 
-          async function getPUOwnerName() {
-            setPUOwner(await usersAPI.getPUOwnerName(pickup.creatorUser));
-          }
-          getPUOwnerName();
-      }, [])
+        async function getPUOwnerName() {
+        setPUOwner(await usersAPI.getPUOwnerName(pickup.creatorUser));
+        }
+        getPUOwnerName();
+    }, [])
+
+    async function handleAcceptPickup() {
+        try {
+            //Add current user to PU playersAccepted
+            pickup.playersAccepted.push(user._id)
+            console.log("current user", user._id, "pickup id",pickupId, "pickupPlayersAccepted", pickup.playersAccepted )
+            // function to save user to playersAccepted array . 
+        } catch(err) {
+            console.log('handleAcceptPickup Error',err)
+        }
+    };
+
       
   return (
-    <main>
-          <h1>pickup detal page</h1>
+      <main>
+        <h1>pickup detal page</h1>
           <table className="styled-table">
             <tr>
                 {/* <td>{thisCreatorUser.gender}</td> */}
@@ -69,13 +81,13 @@ export default function PickupsDetailPage(
                 <th>Req Name</th>
                 <td>{PUOwner.name}</td>
             </tr>
+            {/* check for user and then make sure the user is not the PU creator */}
             { user &&
-                 !(user._id === pickup.creatorUser) &&
+                !(user._id === pickup.creatorUser) &&
                     <tr>
                         <th>Accept Pick-UP?</th>
-                        <button type="submit">Accept this Pickp-Up</button>
-                    </tr>
-                
+                            <button onClick={handleAcceptPickup}>Accept this Pickp-Up</button>
+                    </tr>               
             }
         </table>
     </main>
